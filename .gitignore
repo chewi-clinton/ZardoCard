@@ -36,6 +36,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# local dev notes / scraped reference material (not part of the shipped app)
+/PROJECT_NOTES.md
+/docs/reference/
