@@ -1,0 +1,394 @@
+{
+  "new-arrivals": [
+    {
+      "handle": "elvolving-skies-booster-pack-random-artwork",
+      "title": "Evolving Skies Booster Pack (Random ArtWork)",
+      "image": "/images/products/elvolving-skies-booster-pack-random-artwork.png",
+      "price": "90.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "sword-shield-charizard-ultra-premium-collection-upc",
+      "title": "Charizard Ultra-Premium UPC",
+      "image": "/images/products/sword-shield-charizard-ultra-premium-collection-upc.png",
+      "price": "955.00",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "perfect-order-sleeved-pack",
+      "title": "Perfect Order Sleeved Pack",
+      "image": "/images/products/perfect-order-sleeved-pack.png",
+      "price": "10.00",
+      "compareAtPrice": "8.50",
+      "fromPrice": true
+    },
+    {
+      "handle": "copie-brilliant-stars-sleeved-pack-random-artwork",
+      "title": "Destined Rivals Sleeved Pack",
+      "image": "/images/products/copie-brilliant-stars-sleeved-pack-random-artwork.png",
+      "price": "25.00",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "umbreon-130-197-obsidian-flames-spanish-stamped-promo-sealed-pokemon-card",
+      "title": "SPANISH Umbreon (130/197) Obsidian Flames Sealed Promo",
+      "image": "/images/products/umbreon-130-197-obsidian-flames-spanish-stamped-promo-sealed-pokemon-card.jpg",
+      "price": "25.00",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "psa-10-fa-marnie-premium-tournament-collection",
+      "title": "PSA 10 FA MARNIE PREMIUM TOURNAMENT COLLECTION",
+      "image": "/images/products/psa-10-fa-marnie-premium-tournament-collection.png",
+      "price": "290.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-fa-gloria-vmax-climax-japanese",
+      "title": "PSA 10 FA GLORIA VMAX CLIMAX JAPANESE",
+      "image": "/images/products/psa-10-fa-gloria-vmax-climax-japanese.png",
+      "price": "190.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-9-kanazawas-pikachu-pokemon-center-japanese",
+      "title": "PSA 9 KANAZAWA'S PIKACHU POKEMON CENTER JAPANESE",
+      "image": "/images/products/psa-9-kanazawas-pikachu-pokemon-center-japanese.png",
+      "price": "450.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "ascended-heroes-booster-pack",
+      "title": "Ascended Heroes Booster Pack",
+      "image": "/images/products/ascended-heroes-booster-pack.webp",
+      "price": "30.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-rhyhorn-1st-edition-jungle-1999",
+      "title": "PSA 10 RHYHORN 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-rhyhorn-1st-edition-jungle-1999.png",
+      "price": "375.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-paras-1st-edition-jungle-1999",
+      "title": "PSA 10 PARAS 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-paras-1st-edition-jungle-1999.png",
+      "price": "340.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-bellsprout-1st-edition-jungle-1999",
+      "title": "PSA 10 BELLSPROUT 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-bellsprout-1st-edition-jungle-1999.jpg",
+      "price": "425.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    }
+  ],
+  "singles": [
+    {
+      "handle": "mew-8-promo",
+      "title": "Mew (8/53) - WoTC Promo",
+      "image": "/images/products/mew-8-promo.jpg",
+      "price": "6.72",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "pikachu-5-025-celebrations-holofoil",
+      "title": "Pikachu (5/025) - Celebrations Holofoil",
+      "image": "/images/products/pikachu-5-025-celebrations-holofoil.jpg",
+      "price": "4.20",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "trafalgar-law-illustration-box-vol-6-p-093-one-piece-promotion-cards-foil",
+      "title": "Trafalgar Law (Illustration Box Vol.6) (P-093) - One Piece Promotion Cards Foil",
+      "image": "/images/products/trafalgar-law-illustration-box-vol-6-p-093-one-piece-promotion-cards-foil.jpg",
+      "price": "3.65",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "surfing-pikachu-v-8-025-celebrations-holofoil",
+      "title": "Surfing Pikachu V (8/025) - Celebrations Holofoil",
+      "image": "/images/products/surfing-pikachu-v-8-025-celebrations-holofoil.jpg",
+      "price": "3.88",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "charizard-gx-sm211-promo",
+      "title": "Charizard GX (SM211/248) - SM Promos Holofoil",
+      "image": "/images/products/charizard-gx-sm211-promo.jpg",
+      "price": "7.78",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "machamp-cosmos-holo-68-165-miscellaneous-cards-products-holofoil",
+      "title": "Machamp (Cosmos Holo) (68/165) - Miscellaneous Cards & Products Holofoil",
+      "image": "/images/products/machamp-cosmos-holo-68-165-miscellaneous-cards-products-holofoil.jpg",
+      "price": "1.50",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "leafeon-cosmos-holo-5-131-miscellaneous-cards-products-holofoil",
+      "title": "Leafeon (Cosmos Holo) (5/131) - Miscellaneous Cards & Products Holofoil",
+      "image": "/images/products/leafeon-cosmos-holo-5-131-miscellaneous-cards-products-holofoil.jpg",
+      "price": "1.50",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "donquixote-rosinante-illustration-box-vol-6-op12-108-one-piece-promotion-cards-foil",
+      "title": "Donquixote Rosinante (Illustration Box Vol.6) (OP12-108) - One Piece Promotion Cards Foil",
+      "image": "/images/products/donquixote-rosinante-illustration-box-vol-6-op12-108-one-piece-promotion-cards-foil.jpg",
+      "price": "1.50",
+      "compareAtPrice": null,
+      "fromPrice": true
+    },
+    {
+      "handle": "tornadus-svp210-sealed-promo",
+      "title": "Tornadus - SVP210 - White Flare Sealed Promo",
+      "image": "/images/products/tornadus-svp210-sealed-promo.jpg",
+      "price": "10.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "team-magmas-groudon-9-95-celebrations-classic-collection-holofoil",
+      "title": "Team Magma's Groudon (9/95) - Celebrations Classic Collection Holofoil",
+      "image": "/images/products/team-magmas-groudon-9-95-celebrations-classic-collection-holofoil.jpg",
+      "price": "2.50",
+      "compareAtPrice": null,
+      "fromPrice": true
+    }
+  ],
+  "slabs": [
+    {
+      "handle": "psa-10-fa-marnie-premium-tournament-collection",
+      "title": "PSA 10 FA MARNIE PREMIUM TOURNAMENT COLLECTION",
+      "image": "/images/products/psa-10-fa-marnie-premium-tournament-collection.png",
+      "price": "290.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-fa-gloria-vmax-climax-japanese",
+      "title": "PSA 10 FA GLORIA VMAX CLIMAX JAPANESE",
+      "image": "/images/products/psa-10-fa-gloria-vmax-climax-japanese.png",
+      "price": "190.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-9-kanazawas-pikachu-pokemon-center-japanese",
+      "title": "PSA 9 KANAZAWA'S PIKACHU POKEMON CENTER JAPANESE",
+      "image": "/images/products/psa-9-kanazawas-pikachu-pokemon-center-japanese.png",
+      "price": "450.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-rhyhorn-1st-edition-jungle-1999",
+      "title": "PSA 10 RHYHORN 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-rhyhorn-1st-edition-jungle-1999.png",
+      "price": "375.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-paras-1st-edition-jungle-1999",
+      "title": "PSA 10 PARAS 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-paras-1st-edition-jungle-1999.png",
+      "price": "340.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-bellsprout-1st-edition-jungle-1999",
+      "title": "PSA 10 BELLSPROUT 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-bellsprout-1st-edition-jungle-1999.jpg",
+      "price": "425.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-nidoran-1st-edition-jungle-1999",
+      "title": "PSA 10 NIDORAN 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-nidoran-1st-edition-jungle-1999.png",
+      "price": "355.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-goldeen-1st-edition-jungle-1999",
+      "title": "PSA 10 GOLDEEN 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-goldeen-1st-edition-jungle-1999.png",
+      "price": "310.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-grimer-1st-edition-jungle-1999",
+      "title": "PSA 10 GRIMER 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-grimer-1st-edition-jungle-1999.jpg",
+      "price": "620.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-eevee-1st-edition-jungle-1999",
+      "title": "PSA 10 EEVEE 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-eevee-1st-edition-jungle-1999.png",
+      "price": "1,250.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-mankey-1st-edition-jungle-1999",
+      "title": "PSA 10 MANKEY 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-mankey-1st-edition-jungle-1999.png",
+      "price": "700.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-tauros-1st-edition-jungle-1999",
+      "title": "PSA 10 TAUROS 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-tauros-1st-edition-jungle-1999.jpg",
+      "price": "700.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-electrode-1st-edition-jungle-1999",
+      "title": "PSA 10 ELECTRODE 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-electrode-1st-edition-jungle-1999.png",
+      "price": "580.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-10-nidorina-1st-edition-jungle-1999",
+      "title": "PSA 10 NIDORINA 1ST EDITION JUNGLE 1999",
+      "image": "/images/products/psa-10-nidorina-1st-edition-jungle-1999.jpg",
+      "price": "430.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-9-charizard-holo-classic-coll-base-set",
+      "title": "PSA 9 CHARIZARD-HOLO CLASSIC COLL-BASE SET",
+      "image": "/images/products/psa-9-charizard-holo-classic-coll-base-set.webp",
+      "price": "390.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "psa-9-fa-sr-calyrex-vmax-chilling-reign-secret",
+      "title": "PSA 9 FA/SR CALYREX VMAX CHILLING REIGN-SECRET",
+      "image": "/images/products/psa-9-fa-sr-calyrex-vmax-chilling-reign-secret.jpg",
+      "price": "130.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    }
+  ],
+  "sealed": [
+    {
+      "handle": "archeops-swsh272-silver-tempest-pre-release-deck-promo-sealed",
+      "title": "Archeops SWSH272 Silver Tempest Pre-Release Deck Promo - Sealed",
+      "image": "/images/products/archeops-swsh272-silver-tempest-pre-release-deck-promo-sealed.png",
+      "price": "15.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "kirlia-swsh271-silver-tempest-pre-release-deck-promo-sealed",
+      "title": "Kirlia SWSH271 Silver Tempest Pre-Release Deck Promo - Sealed",
+      "image": "/images/products/kirlia-swsh271-silver-tempest-pre-release-deck-promo-sealed.png",
+      "price": "15.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "sealed-case-mega-greninja-ex-premium-collection-boxes",
+      "title": "Sealed Case Mega Greninja EX Premium Collection Boxes",
+      "image": "/images/products/sealed-case-mega-greninja-ex-premium-collection-boxes.png",
+      "price": "600.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "mega-greninja-ex-premium-collection-box",
+      "title": "Mega Greninja EX Premium Collection Box",
+      "image": "/images/products/mega-greninja-ex-premium-collection-box.png",
+      "price": "95.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "sealed-case-vivid-voltage-sleeved-packs-swsh04",
+      "title": "Sealed Case Vivid Voltage Sleeved Packs - SWSH04",
+      "image": "/images/products/sealed-case-vivid-voltage-sleeved-packs-swsh04.png",
+      "price": "3,400.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "sealed-case-brilliant-stars-build-battle-display-of-10",
+      "title": "Sealed Case Brilliant Stars Build & Battle Display of 10",
+      "image": "/images/products/sealed-case-brilliant-stars-build-battle-display-of-10.png",
+      "price": "6,000.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "sealed-case-astral-radiance-build-battle-display-of-10",
+      "title": "Sealed Case Astral Radiance Build & Battle Display of 10",
+      "image": "/images/products/sealed-case-astral-radiance-build-battle-display-of-10.png",
+      "price": "5,500.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "sealed-case-25th-celebrations-pc-etb",
+      "title": "Sealed Case 25th Celebrations PC ETB",
+      "image": "/images/products/sealed-case-25th-celebrations-pc-etb.png",
+      "price": "4,800.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "sealed-case-crown-zenith-etb",
+      "title": "Sealed Case Crown Zenith ETB",
+      "image": "/images/products/sealed-case-crown-zenith-etb.png",
+      "price": "6,960.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    },
+    {
+      "handle": "sealed-case-25th-celebrations-upc",
+      "title": "Sealed Case 25th Celebrations UPC",
+      "image": "/images/products/sealed-case-25th-celebrations-upc.png",
+      "price": "9,340.00",
+      "compareAtPrice": null,
+      "fromPrice": false
+    }
+  ]
+}

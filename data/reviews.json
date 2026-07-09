@@ -1,0 +1,55 @@
+{
+  "ratingLabel": "Rated 4.9/5",
+  "reviewCountLabel": "Based on 430 reviews",
+  "intro": "With over 5,000 reviews gathered from customers around the globe, their feedback speaks for itself.",
+  "items": [
+    {
+      "name": "Jessica P",
+      "date": "4 months ago",
+      "stars": 5,
+      "text": "Products are great. Always well packaged. Love the videos. Will recommend to friends and will definitely purchase from them again."
+    },
+    {
+      "name": "Anthony R",
+      "date": "last year",
+      "stars": 5,
+      "text": "I have had several orders and I have been thrilled with the speed of arrival and quality of the product. Packaging is perfect. You can tell they are handled with love."
+    },
+    {
+      "name": "Maria C",
+      "date": "last year",
+      "stars": 5,
+      "text": "I'm very happy that my package arrived so quickly. The contents were carefully packaged, just as shown in the videos, and everything was perfect. I'm very satisfied. Thank you so much."
+    },
+    {
+      "name": "AndresD",
+      "date": "last year",
+      "stars": 5,
+      "text": "I finally bought a mystery bag a few months ago and I got the chase bag which was unbelievably amazing!! As soon as I got the email these were back in stock I had to purchase again. The ease that he makes purchasing any item is underrated. The packing was exceptional and even had a nice hand written note. Thank you for everything you do! The care you took with the packaging and the genuine nature of your videos online makes me want to support you with another purchase. Thanks Zardo!"
+    },
+    {
+      "name": "Sebastian V",
+      "date": "last year",
+      "stars": 5,
+      "text": "Great e-shop for Pokemon TCG collectors. International shipping and exclusive products. Got some nice hits on my 151 Booster Bundle 👌🏼. Recommended 100%. (Hope to get a better Zardo Wheel gift next time 🤣)"
+    },
+    {
+      "name": "Kass F",
+      "date": "last year",
+      "stars": 5,
+      "text": "ZardoCards is now my go-to seller for online pokémon stuff! i'm realizing the importance of shopping locally and giving Canadian sellers my business as of late, and ZardoCards is a great opportunity to do so. thank you for all of the great supplies!"
+    },
+    {
+      "name": "Brandon D",
+      "date": "2 years ago",
+      "stars": 5,
+      "text": "One of, if not the best Pokemon TCG Store I've dealt with. Reasonable pricing, fast shipping, and best packaging/shipping protection I've seen. The Japanese booster boxes were even shipped in acrylic cases."
+    },
+    {
+      "name": "Alberto M",
+      "date": "last year",
+      "stars": 5,
+      "text": "My brother and I are happy with our purchases. It was our first time buying, and we're satisfied customers who plan to buy more on this journey together."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "question": "What is ZardoCards",
+    "answer": "<p>ZardoCards is a premium Pok\u00e9mon card retailer specializing in authentic Pok\u00e9mon products, including single cards, booster packs, boxes, and more. We are dedicated to providing collectors and fans with high-quality items and excellent service.</p>"
+  },
+  {
+    "question": "How can I place an order?",
+    "answer": "<p>You can place an order directly through our website <a href=\"https://zardocards.com\" title=\"https://zardocards.com\">zardocards.com</a></p><p>Simply browse our collections, add items to your cart, and check out securely.</p>"
+  },
+  {
+    "question": "Do you ship internationally?",
+    "answer": "<p>Yes, we ship worldwide! Shipping rates and delivery times vary based on your location. You can find more details during the checkout process.</p>"
+  },
+  {
+    "question": "Do international orders include customs duties or taxes?",
+    "answer": "<p>We do not charge taxes or VAT outside of the north america, we only charge for the shipping cost at checkout. </p><p>However, for all international orders, we are required to declare the full value of the items on the invoice to comply with customs regulations. </p><p>Any additional customs duties, taxes, VAT, or fees imposed by your country are not in our control and are the responsibility of the customer. </p><p>These charges are determined by your local customs office, and we recommend contacting them for more information about potential costs before placing your order.</p>"
+  },
+  {
+    "question": "How long does shipping take?",
+    "answer": "<p>Shipping within Canada typically takes 1-7 business days. </p><p>International orders may take 2-14 business days depending on your location. Once your order is shipped, you\u2019ll receive a tracking number to monitor its progress.</p>"
+  },
+  {
+    "question": "What are the shipping costs?",
+    "answer": "<p>Shipping costs depend on your location and the weight of your order. Free shipping may be available on orders over <strong>250$ </strong>in <em>CANADA & USA only</em>. </p>"
+  },
+  {
+    "question": "Can I sell my Pok\u00e9mon cards to ZardoCards?",
+    "answer": "<p>You can ! Please contact us via the form in <a href=\"/pages/contact\" title=\"Contact Us\">contact us</a> or via email at info@zardocards.com</p>"
+  },
+  {
+    "question": "Do you have a physical store?",
+    "answer": "<p>No, we\u2019re only an online retailer.</p>"
+  },
+  {
+    "question": "How can I contact ZardoCards?",
+    "answer": "<p>You can reach our customer support team via email at info@zardocards.com or through the contact form on our website.</p>"
+  }
+]
