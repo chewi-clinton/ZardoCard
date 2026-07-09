@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
-import { ProductCard } from "@/components/product-card";
-import newArrivalsData from "../../data/new-arrivals.json";
+import { ProductCarousel } from "@/components/product-carousel";
+import { PromoGrid } from "@/components/promo-grid";
+import { ReviewsSection } from "@/components/reviews-section";
+import { FaqAccordion } from "@/components/faq-accordion";
+import { TrustBadges } from "@/components/trust-badges";
+import homepageProducts from "../../data/homepage-products.json";
 
 const categories = [
   { label: "Slabs", href: "/collections/all-slabs", image: "/images/category-slabs.png" },
@@ -19,13 +23,6 @@ const categories = [
   },
   { label: "Tins", href: "/collections/tins-chests", image: "/images/category-tins.png" },
 ];
-
-const newArrivals = newArrivalsData.map((p) => ({
-  handle: p.handle,
-  title: p.title,
-  price: `$${Number(p.price).toFixed(2)}`,
-  image: p.image,
-}));
 
 export default function Home() {
   return (
@@ -71,22 +68,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1400px] px-4 py-12 sm:px-6">
-        <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-2xl font-extrabold sm:text-3xl">⭐ Explore New Arrivals</h2>
-          <a
-            href="/collections/new-arrivals"
-            className="text-sm font-semibold text-accent hover:underline"
-          >
-            View all
-          </a>
-        </div>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4">
-          {newArrivals.map((product) => (
-            <ProductCard key={product.handle} product={product} />
-          ))}
-        </div>
-      </section>
+      <ProductCarousel
+        title="Explore our New Arrivals"
+        viewAllHref="/collections/new-arrivals"
+        products={homepageProducts["new-arrivals"]}
+      />
+
+      <PromoGrid />
+
+      <ProductCarousel
+        title="Explore all our Singles"
+        viewAllHref="/collections/raw-cards"
+        products={homepageProducts.singles}
+      />
+
+      <ProductCarousel
+        title="Explore our Slabs"
+        viewAllHref="/collections/all-slabs"
+        products={homepageProducts.slabs}
+      />
+
+      <ProductCarousel
+        title="Explore all our Sealed Products"
+        viewAllHref="/collections/sealed-1"
+        products={homepageProducts.sealed}
+      />
+
+      <ReviewsSection />
+
+      <FaqAccordion />
+
+      <TrustBadges />
     </div>
   );
 }
