@@ -1,14 +1,14 @@
+import Image from "next/image";
 import { Star, BadgeCheck } from "lucide-react";
+import { AnimatedRating } from "@/components/animated-rating";
 import reviews from "../../data/reviews.json";
 
 function ReviewCard({ review }) {
   return (
-    <div className="flex w-72 shrink-0 snap-start flex-col gap-3 rounded-xl bg-surface p-5">
+    <div className="mx-2 flex w-72 shrink-0 flex-col gap-3 rounded-xl bg-surface p-5">
       <div className="flex items-center justify-between">
         <span className="text-sm font-bold text-foreground">{review.name}</span>
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[10px] font-bold text-[#4285F4]">
-          G
-        </span>
+        <Image src="/images/google-logo.png" alt="Google" width={20} height={20} />
       </div>
       <div className="flex items-center gap-2">
         <div className="flex gap-0.5 text-accent">
@@ -24,16 +24,34 @@ function ReviewCard({ review }) {
   );
 }
 
-export function ReviewsSection() {
+function ReviewRow({ items, animationDelay }) {
   return (
-    <section className="mx-auto w-full max-w-[1400px] px-4 py-14 sm:px-6">
-      <p className="mx-auto max-w-xl text-center text-sm text-muted">
+    <div className="overflow-hidden">
+      <div
+        className="flex w-max animate-marquee"
+        style={animationDelay ? { animationDelay } : undefined}
+      >
+        {[...items, ...items].map((review, i) => (
+          <ReviewCard key={`${review.name}-${i}`} review={review} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ReviewsSection() {
+  const rowA = reviews.items.filter((_, i) => i % 2 === 0);
+  const rowB = reviews.items.filter((_, i) => i % 2 === 1);
+
+  return (
+    <section className="w-full py-14">
+      <AnimatedRating />
+      <p className="mx-auto mt-4 max-w-xl px-4 text-center text-sm text-muted">
         {reviews.intro}
       </p>
-      <div className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {reviews.items.map((review) => (
-          <ReviewCard key={review.name} review={review} />
-        ))}
+      <div className="mt-8 flex flex-col gap-4">
+        <ReviewRow items={rowA} />
+        <ReviewRow items={rowB} animationDelay="-11s" />
       </div>
       <div className="mt-8 flex justify-center">
         <a
