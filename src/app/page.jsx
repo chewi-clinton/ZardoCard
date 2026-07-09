@@ -3,6 +3,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { ProductCarousel } from "@/components/product-carousel";
 import { PromoGrid } from "@/components/promo-grid";
 import { ReviewsSection } from "@/components/reviews-section";
+import { MysteryPromo } from "@/components/mystery-promo";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { TrustBadges } from "@/components/trust-badges";
 import homepageProducts from "../../data/homepage-products.json";
@@ -95,6 +96,8 @@ export default function Home() {
       />
 
       <ReviewsSection />
+
+      <MysteryPromo />
 
       <FaqAccordion />
 
