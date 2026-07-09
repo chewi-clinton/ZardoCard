@@ -1,7 +1,11 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Search, User, ShoppingCart } from "lucide-react";
 import { NavDrawer } from "@/components/nav-drawer";
+import { CountrySelector } from "@/components/country-selector";
 
 const announcements = [
   "FREE GIFTS IN EVERY ORDER",
@@ -9,9 +13,20 @@ const announcements = [
   "ALL ORDERS SHIPPED OUT IN LESS THAN 24H",
 ];
 
+const SCROLL_THRESHOLD = 460;
+
 export function SiteHeader() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 bg-black">
+    <header className="fixed inset-x-0 top-0 z-50">
       <div className="overflow-hidden bg-accent text-accent-foreground">
         <div className="flex animate-marquee whitespace-nowrap py-2 text-xs font-bold tracking-wide">
           {Array.from({ length: 4 }).flatMap((_, rep) =>
@@ -25,51 +40,58 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-4 sm:px-6">
-        <NavDrawer />
+      <div
+        className={`h-20 transition-colors duration-300 sm:h-24 ${
+          scrolled ? "bg-black" : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between gap-4 px-4 sm:px-6">
+          <NavDrawer />
 
-        <Link href="/" className="select-none">
-          <Image
-            src="/images/logo.png"
-            alt="ZardoCards"
-            width={160}
-            height={46}
-            className="h-11 w-auto"
-            priority
-          />
-        </Link>
+          <Link href="/" className="select-none">
+            <Image
+              src="/images/logo.png"
+              alt="ZardoCards"
+              width={160}
+              height={46}
+              className="h-11 w-auto"
+              priority
+            />
+          </Link>
 
-        <div className="flex items-center gap-1 sm:gap-4">
-          <Link
-            href="/pages/contact"
-            className="hidden text-sm font-medium text-foreground hover:text-accent sm:inline"
-          >
-            Contact Us
-          </Link>
-          <Link
-            href="/pages/sell-your-collection"
-            className="hidden text-sm font-medium text-foreground hover:text-accent sm:inline"
-          >
-            Sell your collection
-          </Link>
-          <button
-            className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
-            aria-label="Search"
-          >
-            <Search size={20} />
-          </button>
-          <button
-            className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
-            aria-label="Account"
-          >
-            <User size={20} />
-          </button>
-          <button
-            className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
-            aria-label="Cart"
-          >
-            <ShoppingCart size={20} />
-          </button>
+          <div className="flex items-center gap-1 sm:gap-4">
+            <Link
+              href="/pages/contact"
+              className="hidden text-sm font-medium text-foreground hover:text-accent sm:inline"
+            >
+              Contact Us
+            </Link>
+            <Link
+              href="/pages/sell-your-collection"
+              className="hidden text-sm font-medium text-foreground hover:text-accent sm:inline"
+            >
+              Sell your collection
+            </Link>
+            <CountrySelector className="hidden md:flex" />
+            <button
+              className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
+              aria-label="Search"
+            >
+              <Search size={20} />
+            </button>
+            <button
+              className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
+              aria-label="Account"
+            >
+              <User size={20} />
+            </button>
+            <button
+              className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
+              aria-label="Cart"
+            >
+              <ShoppingCart size={20} />
+            </button>
+          </div>
         </div>
       </div>
     </header>
