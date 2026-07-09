@@ -1,19 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, Search, User, ShoppingCart } from "lucide-react";
+import { Search, User, ShoppingCart } from "lucide-react";
+import { NavDrawer } from "@/components/nav-drawer";
 
 const announcements = [
-  "SHIPPED SAME DAY BEFORE 2PM CET",
-  "FREE GIFT WITH EVERY ORDER",
-];
-
-const navLinks = [
-  { label: "Slabs", href: "/collections/all-slabs" },
-  { label: "Singles", href: "/collections/raw-cards" },
-  { label: "Packs", href: "/collections/booster-packs" },
-  { label: "Sleeved Packs", href: "/collections/sleeved-packs" },
-  { label: "Blisters", href: "/collections/checklane-blisters" },
-  { label: "Tins", href: "/collections/tins-chests" },
+  "FREE GIFTS IN EVERY ORDER",
+  "FREE SHIPPING ON ORDERS OVER 250$",
+  "ALL ORDERS SHIPPED OUT IN LESS THAN 24H",
 ];
 
 export function SiteHeader() {
@@ -21,23 +14,19 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 bg-black">
       <div className="overflow-hidden bg-accent text-accent-foreground">
         <div className="flex animate-marquee whitespace-nowrap py-2 text-xs font-bold tracking-wide">
-          {[...announcements, ...announcements, ...announcements, ...announcements].map(
-            (text, i) => (
-              <span key={i} className="mx-6 inline-block">
+          {Array.from({ length: 4 }).flatMap((_, rep) =>
+            announcements.map((text, i) => (
+              <span key={`${rep}-${i}`} className="mx-3 inline-flex items-center gap-3">
                 {text}
+                <span className="h-1 w-1 rounded-full bg-accent-foreground/60" />
               </span>
-            )
+            ))
           )}
         </div>
       </div>
 
       <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-4 sm:px-6">
-        <button
-          className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
-          aria-label="Open menu"
-        >
-          <Menu size={22} />
-        </button>
+        <NavDrawer />
 
         <Link href="/" className="select-none">
           <Image
@@ -83,20 +72,6 @@ export function SiteHeader() {
           </button>
         </div>
       </div>
-
-      <nav className="hidden border-t border-border md:block">
-        <div className="mx-auto flex max-w-[1400px] items-center justify-center gap-8 px-6 py-2.5">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-semibold uppercase tracking-tight text-foreground hover:text-accent"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      </nav>
     </header>
   );
 }
