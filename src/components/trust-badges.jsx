@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { UserRound, Plane, Headset } from "lucide-react";
 
 const badges = [
@@ -22,6 +23,13 @@ export function TrustBadges() {
   return (
     <section className="mx-auto w-full max-w-[1400px] px-4 pb-16 sm:px-6">
       <div className="flex flex-col items-center gap-2 pb-10 text-center">
+        <Image
+          src="/images/logo.png"
+          alt="ZardoCards"
+          width={160}
+          height={46}
+          className="mb-2 h-10 w-auto"
+        />
         <p className="text-sm font-semibold text-foreground">
           Our customer support is available
         </p>
