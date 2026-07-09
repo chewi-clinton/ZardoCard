@@ -16,7 +16,7 @@ export function ProductCarousel({ title, viewAllHref, products }) {
       </div>
       <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {products.map((product) => (
-          <div key={product.handle} className="snap-start">
+          <div key={product.handle} className="w-40 shrink-0 snap-start sm:w-48">
             <ProductCard product={product} />
           </div>
         ))}

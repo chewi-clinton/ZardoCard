@@ -9,7 +9,7 @@ export function ProductCard({ product }) {
   return (
     <Link
       href={`/products/${product.handle}`}
-      className="group flex w-40 shrink-0 flex-col gap-3 sm:w-48"
+      className="group flex w-full flex-col gap-3"
     >
       <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-surface border border-border">
         <Image
