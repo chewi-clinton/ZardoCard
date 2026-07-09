@@ -35,3 +35,18 @@ export function InstagramIcon(props) {
     </svg>
   );
 }
+
+export function TikTokIcon(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={16}
+      height={16}
+      fill="currentColor"
+      stroke="none"
+      {...props}
+    >
+      <path d="M16.5 2h-3v13.5a3 3 0 1 1-2.5-2.96V9.46A6 6 0 1 0 16.5 15.4V8.8a7.5 7.5 0 0 0 4.5 1.5V7.3a4.5 4.5 0 0 1-4.5-4.5V2z" />
+    </svg>
+  );
+}
