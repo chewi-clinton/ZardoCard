@@ -28,7 +28,7 @@ const categories = [
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative flex min-h-[520px] items-center justify-center overflow-hidden">
+      <section className="relative -mt-28 flex min-h-[520px] items-center justify-center overflow-hidden sm:-mt-32">
         <Image
           src="/images/hero-bg.jpg"
           alt="Inside the ZardoCards Pokémon card store"

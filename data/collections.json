@@ -21,7 +21,8 @@
       "prismatic-evolutions-booster-bundle",
       "sealed-case-destined-rivals-booster-box",
       "scarlet-violet-151-booster-pack"
-    ]
+    ],
+    "bannerImage": "/images/banners/✨-new-arrivals.jpg"
   },
   "200-blister-packs": {
     "handle": "200-blister-packs",
@@ -43,7 +44,8 @@
       "ultra-prism-3-pack-blister-w-alolan-vulpix",
       "ultra-prism-3-pack-blister-w-porygon-z",
       "xy-primal-clash-checklane-blister-w-zoroark-promo"
-    ]
+    ],
+    "bannerImage": "/images/banners/200-blister-packs.jpg"
   },
   "3d-lenticular-posters": {
     "handle": "3d-lenticular-posters",
@@ -56,7 +58,8 @@
       "calyrex-lenticular-3d-poster",
       "palkia-dialga-lenticular-3d-poster",
       "charizard-arceus-lenticular-3d-poster"
-    ]
+    ],
+    "bannerImage": null
   },
   "500-and-lower": {
     "handle": "500-and-lower",
@@ -80,7 +83,8 @@
       "psa-9-fa-orgn-frm-dialga-v-astral-radiance",
       "psa-9-fa-orgn-frm-palkia-v-astral-radiance",
       "psa-9-fa-leafeon-gx-ultra-prism-secret"
-    ]
+    ],
+    "bannerImage": "/images/banners/500-and-lower.jpg"
   },
   "500-and-up": {
     "handle": "500-and-up",
@@ -104,7 +108,8 @@
       "psa-10-hypno-series-iii",
       "psa-10-mightyena-holo-pk-dark-blast-td",
       "psa-10-rhydon-rev-foil-legendary-collection"
-    ]
+    ],
+    "bannerImage": "/images/banners/500-and-up.jpg"
   },
   "accessories-more": {
     "handle": "accessories-more",
@@ -128,7 +133,8 @@
       "palkia-dialga-lenticular-3d-poster",
       "charizard-arceus-lenticular-3d-poster",
       "je-te-choisis-pikachu-pokemon-french-version-tape"
-    ]
+    ],
+    "bannerImage": null
   },
   "all-artsets": {
     "handle": "all-artsets",
@@ -152,7 +158,8 @@
       "neo-revelation-unlimited-booster-pack",
       "black-white-booster-pack",
       "black-white-noble-victories-booster-pack"
-    ]
+    ],
+    "bannerImage": "/images/banners/all-artsets.jpg"
   },
   "all-biister-packs": {
     "handle": "all-biister-packs",
@@ -176,7 +183,8 @@
       "aggron-cosmos-holo-80-124-blister-exclusives-holofoil",
       "astral-radiance-checklane-w-swampert-promo",
       "astral-radiance-checklane-w-feraligatr-promo"
-    ]
+    ],
+    "bannerImage": "/images/banners/all-biister-packs.jpg"
   },
   "all-booster-boxes": {
     "handle": "all-booster-boxes",
@@ -200,7 +208,8 @@
       "vmax-climax-high-class-pack-japanese-booster-box",
       "elvolving-skies-booster-box",
       "mega-symphonia-booster-box-japanese"
-    ]
+    ],
+    "bannerImage": "/images/banners/all-booster-boxes.jpg"
   },
   "all-etb": {
     "handle": "all-etb",
@@ -224,7 +233,8 @@
       "sword-shield-lost-origin-elite-trainer-box",
       "destined-rivals-etb-pc",
       "hidden-fates-sun-moon-etb"
-    ]
+    ],
+    "bannerImage": "/images/banners/all-etb.jpg"
   },
   "all-prize-packs": {
     "handle": "all-prize-packs",
@@ -234,7 +244,8 @@
     "productHandles": [
       "series-six-prize-pack",
       "prize-pack-series-5-booster-pack"
-    ]
+    ],
+    "bannerImage": "/images/banners/all-prize-packs.jpg"
   },
   "all-slabs": {
     "handle": "all-slabs",
@@ -258,7 +269,8 @@
       "psa-10-nidorina-1st-edition-jungle-1999",
       "psa-9-charizard-holo-classic-coll-base-set",
       "psa-9-fa-sr-calyrex-vmax-chilling-reign-secret"
-    ]
+    ],
+    "bannerImage": "/images/banners/all-slabs.jpg"
   },
   "all-triple-biister-packs": {
     "handle": "all-triple-biister-packs",
@@ -282,7 +294,8 @@
       "ultra-prism-3-pack-blister-w-alolan-vulpix",
       "scarlet-violet-prismatic-evolutions-two-pack-blister",
       "venusaur-base-set-unlimited-1-pack-blister"
-    ]
+    ],
+    "bannerImage": "/images/banners/all-triple-biister-packs.jpg"
   },
   "black-white-booster-packs": {
     "handle": "black-white-booster-packs",
@@ -296,7 +309,8 @@
       "black-white-dark-explorers-booster-pack",
       "black-white-boundaries-crossed-booster-pack",
       "black-white-plasma-blast-booster-pack"
-    ]
+    ],
+    "bannerImage": "/images/banners/black-white-booster-packs.jpg"
   },
   "booster-packs": {
     "handle": "booster-packs",
@@ -320,7 +334,8 @@
       "scarlet-violet-stellar-crown-booster-pack",
       "scarlet-violet-booster-pack-random-artwork",
       "scarlet-violet-paradox-rift-booster-pack"
-    ]
+    ],
+    "bannerImage": "/images/banners/booster-packs.jpg"
   },
   "cases": {
     "handle": "cases",
@@ -344,14 +359,16 @@
       "sealed-case-25th-anniversary-v-union-special-collection",
       "sealed-case-25th-anniversary-pikachu-vmax",
       "sealed-case-zacian-zamazenta-etb-plus"
-    ]
+    ],
+    "bannerImage": null
   },
   "celebration-booster-packs": {
     "handle": "celebration-booster-packs",
     "title": "Celebration Booster Packs",
     "description": "",
     "productsCount": 3,
-    "productHandles": []
+    "productHandles": [],
+    "bannerImage": "/images/banners/celebration-booster-packs.jpg"
   },
   "checklane-blisters": {
     "handle": "checklane-blisters",
@@ -375,7 +392,8 @@
       "elvolving-skies-eevee-checklane-blister",
       "lost-origin-scorbunny-checklane-blister",
       "astral-radiance-toxel-checklane-blister"
-    ]
+    ],
+    "bannerImage": "/images/banners/checklane-blisters.jpg"
   },
   "collection-boxes": {
     "handle": "collection-boxes",
@@ -399,7 +417,8 @@
       "sealed-case-classic-collection-box-english",
       "deluxe-pin-ascended-heroes-collection-box",
       "pokemon-day-2026-collection-box-30th-anniversary"
-    ]
+    ],
+    "bannerImage": "/images/banners/collection-boxes.jpg"
   },
   "deck-boxes": {
     "handle": "deck-boxes",
@@ -423,7 +442,8 @@
       "cgc-9-luxray-stormshaper-deck",
       "black-white-dark-explorers-theme-deck-display",
       "egghead-starter-deck-display"
-    ]
+    ],
+    "bannerImage": "/images/banners/deck-boxes.jpg"
   },
   "explore-all-one-piece-copy": {
     "handle": "explore-all-one-piece-copy",
@@ -447,7 +467,8 @@
       "eb-03-heroines-edition-booster-pack",
       "op-15-adventure-on-kamis-island-booster-box",
       "op-02-paramount-war-booster-box"
-    ]
+    ],
+    "bannerImage": "/images/banners/explore-all-one-piece-copy.jpg"
   },
   "explore-all-op-booster-boxes-copy": {
     "handle": "explore-all-op-booster-boxes-copy",
@@ -461,7 +482,8 @@
       "sealed-case-op-04-kingdoms-of-intrigue-booster-box",
       "sealed-case-op-03-pillars-of-strength-booster-box",
       "sealed-case-eb-03-heroines-edition-booster-box"
-    ]
+    ],
+    "bannerImage": "/images/banners/explore-all-op-booster-boxes-copy.jpg"
   },
   "explore-all-op-sealed-cases-copy": {
     "handle": "explore-all-op-sealed-cases-copy",
@@ -485,7 +507,8 @@
       "jewelry-bonney-op07-019-op07-019-starter-deck-24-green-jewelry-bonney-foil",
       "x-drake-premium-card-collection-best-selection-vol-2-op01-114-one-piece-promotion-cards-foil",
       "black-maria-premium-card-collection-bandai-card-games-fest-23-24-edition-st04-011-one-piece-promotion-cards-foil"
-    ]
+    ],
+    "bannerImage": "/images/banners/explore-all-op-sealed-cases-copy.jpg"
   },
   "explore-all-op-singles-copy": {
     "handle": "explore-all-op-singles-copy",
@@ -503,7 +526,8 @@
       "one-piece-op-10-royal-blood-sleeved-booster-pack",
       "one-piece-tony-tony-chopper-p-101-p-standard-battle-pack-sealed",
       "one-piece-welcome-kit-monkey-d-luffy-op01-003-demo-deck-sealed"
-    ]
+    ],
+    "bannerImage": "/images/banners/explore-all-op-singles-copy.jpg"
   },
   "explore-all-our-vintage-packs": {
     "handle": "explore-all-our-vintage-packs",
@@ -527,7 +551,8 @@
       "gym-challenge-1st-edition-booster-pack",
       "neo-genesis-1st-edition-booster-pack",
       "black-white-boundaries-crossed-booster-pack"
-    ]
+    ],
+    "bannerImage": null
   },
   "japanese-booster-box": {
     "handle": "japanese-booster-box",
@@ -551,7 +576,8 @@
       "japanese-pokemon-sm6a-sun-moon-dragon-storm-booster-box-of-30-packs",
       "japanese-pokemon-sm11b-sun-moon-dream-league-booster-box-of-30-packs",
       "japanese-scarlet-violet-clay-burst-booster-box-sv2d"
-    ]
+    ],
+    "bannerImage": "/images/banners/japanese-booster-box.jpg"
   },
   "japanese-booster-packs": {
     "handle": "japanese-booster-packs",
@@ -563,7 +589,8 @@
       "japanese-pokemon-151-booster-pack-troll-live",
       "raging-surf-sv3a-booster-pack-japanese",
       "ruler-of-the-black-flame-sv3-booster-pack-japanese"
-    ]
+    ],
+    "bannerImage": "/images/banners/japanese-booster-packs.jpg"
   },
   "master-sets": {
     "handle": "master-sets",
@@ -573,7 +600,8 @@
     "productHandles": [
       "pokemon-go-complete-master-set",
       "master-set-raging-surf"
-    ]
+    ],
+    "bannerImage": null
   },
   "mystery-bags": {
     "handle": "mystery-bags",
@@ -582,7 +610,8 @@
     "productsCount": 1,
     "productHandles": [
       "zardo-mystery-bag"
-    ]
+    ],
+    "bannerImage": null
   },
   "mystery-box": {
     "handle": "mystery-box",
@@ -591,7 +620,8 @@
     "productsCount": 1,
     "productHandles": [
       "zardo-mystery-upc"
-    ]
+    ],
+    "bannerImage": null
   },
   "one-piece": {
     "handle": "one-piece",
@@ -615,7 +645,8 @@
       "op-03-pillars-of-strenght",
       "donquixote-rosinante-illustration-box-vol-6-op12-108-one-piece-promotion-cards-foil",
       "eb-04-egghead-crisis-japanese-booster-pack"
-    ]
+    ],
+    "bannerImage": "/images/banners/one-piece.jpg"
   },
   "other-booster-packs": {
     "handle": "other-booster-packs",
@@ -630,7 +661,8 @@
       "mcdonalds-pokemon-25th-anniversary-booster-pack",
       "pokemon-go-booster-pack",
       "champions-path-booster-pack-random-artwork"
-    ]
+    ],
+    "bannerImage": "/images/banners/other-booster-packs.jpg"
   },
   "premium-collection": {
     "handle": "premium-collection",
@@ -654,7 +686,8 @@
       "espeon-gx-premium-collection",
       "incineroar-gx-premium-collection",
       "decidueye-gx-premium-collection-box"
-    ]
+    ],
+    "bannerImage": "/images/banners/premium-collection.jpg"
   },
   "prereleases-build-battle": {
     "handle": "prereleases-build-battle",
@@ -678,7 +711,8 @@
       "silver-tempest-build-battle",
       "scarlet-violet-stellar-crown-booster-bundle-box-of-6-packs",
       "destined-rivals-booster-bundle"
-    ]
+    ],
+    "bannerImage": "/images/banners/prereleases-build-battle.jpg"
   },
   "raw-cards": {
     "handle": "raw-cards",
@@ -702,7 +736,8 @@
       "tapu-fini-gx-133-147-full-art-ultra-rare",
       "squirtle-14-17-common",
       "baby-5-premium-card-collection-best-selection-vol-3-op04-032-one-piece-promotion-cards-foil"
-    ]
+    ],
+    "bannerImage": "/images/banners/raw-cards.jpg"
   },
   "ripped-seald-items": {
     "handle": "ripped-seald-items",
@@ -726,7 +761,8 @@
       "sealed-case-151-ultra-premium-upc",
       "mega-charizard-x-ex-upc",
       "sealed-case-charizard-ultra-premium-upc-4x"
-    ]
+    ],
+    "bannerImage": null
   },
   "scarlet-violet": {
     "handle": "scarlet-violet",
@@ -740,7 +776,8 @@
       "obsidian-flames-booster-pack-random-artwork",
       "paldea-evolved-booster-pack-random-artwork",
       "scarlet-violet-booster-pack-random-artwork"
-    ]
+    ],
+    "bannerImage": "/images/banners/scarlet-violet.jpg"
   },
   "scarlet-violet-booster-box": {
     "handle": "scarlet-violet-booster-box",
@@ -760,7 +797,8 @@
       "scarlet-violet-twilight-masquerade-booster-box",
       "sealed-case-destined-rivals-booster-box",
       "twilight-masquerade-booster-box-copy"
-    ]
+    ],
+    "bannerImage": null
   },
   "sealed-1": {
     "handle": "sealed-1",
@@ -784,7 +822,8 @@
       "double-burst-thai-booster-box-charizard-reshiram",
       "double-burst-thai-booster-box",
       "sword-shield-premium-trainer-box"
-    ]
+    ],
+    "bannerImage": "/images/banners/sealed-1.jpg"
   },
   "signed-slabs": {
     "handle": "signed-slabs",
@@ -808,7 +847,8 @@
       "auto-10-moduwa-celebi-grass-energy-holo",
       "auto-10-articuno-water-energy-holo",
       "auto-10-moduwa-raikou-lightning-energy-holo"
-    ]
+    ],
+    "bannerImage": "/images/banners/signed-slabs.jpg"
   },
   "skateboards-pokemon-center-bear-walker": {
     "handle": "skateboards-pokemon-center-bear-walker",
@@ -819,7 +859,8 @@
       "snom-skateboard-pokemon-center-bear-walker",
       "piplub-skateboard-pokemon-center-bear-walker",
       "pichu-skateboard-pokemon-center-bear-walker"
-    ]
+    ],
+    "bannerImage": null
   },
   "slabs-under-50": {
     "handle": "slabs-under-50",
@@ -843,7 +884,8 @@
       "psa-8-fa-roxanne-vstar-universe",
       "psa-9-abra-and-the-psychic-showdown-2000-topps",
       "psa-9-baltoy-claydol"
-    ]
+    ],
+    "bannerImage": "/images/banners/slabs-under-50.jpg"
   },
   "sleeved-packs": {
     "handle": "sleeved-packs",
@@ -867,7 +909,8 @@
       "perfect-order-sleeved-pack",
       "phantasmal-flames-sleeved-pack",
       "sword-shield-rebel-clash-sleeved-booster-pack"
-    ]
+    ],
+    "bannerImage": "/images/banners/sleeved-packs.jpg"
   },
   "sun-moon-booster-boxe": {
     "handle": "sun-moon-booster-boxe",
@@ -876,7 +919,8 @@
     "productsCount": 13,
     "productHandles": [
       "seales-case-crimson-invasion-booster-box"
-    ]
+    ],
+    "bannerImage": null
   },
   "sun-moon-booster-packs": {
     "handle": "sun-moon-booster-packs",
@@ -891,7 +935,8 @@
       "burning-shadows-booster-pack-random-artwork",
       "crimson-invasion-booster-pack-random-artwork",
       "ultra-prism-booster-pack-random-artwork"
-    ]
+    ],
+    "bannerImage": "/images/banners/sun-moon-booster-packs.jpg"
   },
   "sword-shield-booster-box": {
     "handle": "sword-shield-booster-box",
@@ -915,7 +960,8 @@
       "sealed-case-silver-tempest-booster-box",
       "sealed-case-brilliant-stars-booster-box",
       "sealed-case-darkness-ablaze-booster-box"
-    ]
+    ],
+    "bannerImage": null
   },
   "sword-shield-booster-packs": {
     "handle": "sword-shield-booster-packs",
@@ -933,7 +979,8 @@
       "silver-tempest-booster-pack-random-artwork",
       "rebel-clash-booster-pack-random-artwork",
       "vivid-voltage-booster-pack-random-artwork"
-    ]
+    ],
+    "bannerImage": "/images/banners/sword-shield-booster-packs.jpg"
   },
   "tins-chests": {
     "handle": "tins-chests",
@@ -957,7 +1004,8 @@
       "iron-leaves-ex-tins",
       "walking-wake-ex-tins",
       "emboar-ex-tin"
-    ]
+    ],
+    "bannerImage": "/images/banners/tins-chests.jpg"
   },
   "ultra-premium-collection": {
     "handle": "ultra-premium-collection",
@@ -975,7 +1023,8 @@
       "sword-shield-charizard-ultra-premium-collection-upc",
       "scarlet-violet-151-ultra-premium-collection-upc",
       "celebrations-ultra-premium-collection-upc"
-    ]
+    ],
+    "bannerImage": "/images/banners/ultra-premium-collection.jpg"
   },
   "vintage-booster-boxes-1": {
     "handle": "vintage-booster-boxes-1",
@@ -989,7 +1038,8 @@
       "neo-discovery-unlimited-booster-box",
       "neo-genesis-unlimited-booster-box",
       "neo-revelation-booster-box"
-    ]
+    ],
+    "bannerImage": null
   },
   "xy-booster-box": {
     "handle": "xy-booster-box",
@@ -1002,7 +1052,8 @@
       "ancient-origins-booster-box",
       "sealed-case-furious-fists-booster-box",
       "furious-fists-xy-booster-box"
-    ]
+    ],
+    "bannerImage": null
   },
   "xy-booster-packs": {
     "handle": "xy-booster-packs",
@@ -1012,7 +1063,8 @@
     "productHandles": [
       "evolutions-booster-pack-random-artwork",
       "fates-collide-booster-pack-random-artwork"
-    ]
+    ],
+    "bannerImage": "/images/banners/xy-booster-packs.jpg"
   },
   "zardo-products": {
     "handle": "zardo-products",
@@ -1031,7 +1083,8 @@
       "zardo-acrylic-pack",
       "zardo-booster-box-acrylic",
       "zardo-etb-acrylic"
-    ]
+    ],
+    "bannerImage": null
   },
   "zardo-upc-copy": {
     "handle": "zardo-upc-copy",
@@ -1040,6 +1093,7 @@
     "productsCount": 1,
     "productHandles": [
       "zardo-chest"
-    ]
+    ],
+    "bannerImage": null
   }
 }
