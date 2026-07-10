@@ -27,7 +27,6 @@ class Command(BaseCommand):
                 defaults={
                     "title": c["title"],
                     "description": c.get("description") or "",
-                    "banner_image": c.get("bannerImage") or "",
                 },
             )
             created += was_created
@@ -52,7 +51,6 @@ class Command(BaseCommand):
                     "price": p.get("price") or 0,
                     "compare_at_price": p.get("compareAtPrice"),
                     "variant_count": p.get("variantCount") or 1,
-                    "image": p.get("localImage") or "",
                 },
             )
             created += was_created

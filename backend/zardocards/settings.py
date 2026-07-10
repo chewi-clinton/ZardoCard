@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
+    "storages",
     "catalog",
     "orders",
 ]
@@ -77,8 +78,45 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Media storage (MinIO via django-storages' S3-compatible backend)
+# Falls back to local filesystem storage when MINIO_ACCESS_KEY isn't set,
+# so the project runs without a MinIO instance. Set the MINIO_* vars in
+# .env to point at the real MinIO server.
+MINIO_ENDPOINT = config("MINIO_ENDPOINT", default="")
+MINIO_ACCESS_KEY = config("MINIO_ACCESS_KEY", default="")
+MINIO_SECRET_KEY = config("MINIO_SECRET_KEY", default="")
+MINIO_BUCKET_NAME = config("MINIO_BUCKET_NAME", default="zardocards")
+MINIO_USE_SSL = config("MINIO_USE_SSL", default=False, cast=bool)
+MINIO_PUBLIC_URL = config("MINIO_PUBLIC_URL", default="")
+
+if MINIO_ACCESS_KEY:
+    AWS_ACCESS_KEY_ID = MINIO_ACCESS_KEY
+    AWS_SECRET_ACCESS_KEY = MINIO_SECRET_KEY
+    AWS_STORAGE_BUCKET_NAME = MINIO_BUCKET_NAME
+    AWS_S3_ENDPOINT_URL = MINIO_ENDPOINT
+    AWS_S3_USE_SSL = MINIO_USE_SSL
+    AWS_S3_ADDRESSING_STYLE = "path"
+    AWS_DEFAULT_ACL = "public-read"
+    AWS_QUERYSTRING_AUTH = False
+    AWS_S3_URL_PROTOCOL = "https:" if MINIO_USE_SSL else "http:"
+    if MINIO_PUBLIC_URL:
+        AWS_S3_CUSTOM_DOMAIN = MINIO_PUBLIC_URL.replace("https://", "").replace("http://", "")
+
+    STORAGES = {
+        "default": {"BACKEND": "storages.backends.s3.S3Storage"},
+        "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"},
+    }
+else:
+    MEDIA_URL = "media/"
+    MEDIA_ROOT = BASE_DIR / "media"
+    STORAGES = {
+        "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+        "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"},
+    }
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (

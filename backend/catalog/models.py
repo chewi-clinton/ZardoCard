@@ -5,7 +5,7 @@ class Category(models.Model):
     handle = models.CharField(max_length=255, unique=True)
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
-    banner_image = models.CharField(max_length=500, blank=True)
+    banner_image = models.ImageField(upload_to="banners/", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -27,7 +27,7 @@ class Product(models.Model):
         max_digits=10, decimal_places=2, null=True, blank=True
     )
     variant_count = models.PositiveIntegerField(default=1)
-    image = models.CharField(max_length=500, blank=True)
+    image = models.ImageField(upload_to="products/", blank=True, null=True)
     categories = models.ManyToManyField(Category, related_name="products", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
