@@ -58,8 +58,8 @@ WSGI_APPLICATION = "zardocards.wsgi.application"
 # runs immediately without a Postgres instance. Set DATABASE_URL in .env
 # to point at the real Postgres database.
 DATABASES = {
-    "default": dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+    "default": dj_database_url.parse(
+        config("DATABASE_URL", default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
         conn_max_age=600,
     )
 }
@@ -101,3 +101,23 @@ CORS_ALLOWED_ORIGINS = config(
     default="http://localhost:3000",
     cast=Csv(),
 )
+
+# Email (Brevo SMTP relay)
+# Falls back to printing emails to the console when BREVO_SMTP_KEY isn't
+# set, so order notifications can be exercised locally without real
+# credentials. Set BREVO_SMTP_LOGIN/BREVO_SMTP_KEY in .env to send for real.
+BREVO_SMTP_LOGIN = config("BREVO_SMTP_LOGIN", default="")
+BREVO_SMTP_KEY = config("BREVO_SMTP_KEY", default="")
+
+if BREVO_SMTP_KEY:
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_HOST = "smtp-relay.brevo.com"
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = BREVO_SMTP_LOGIN
+    EMAIL_HOST_PASSWORD = BREVO_SMTP_KEY
+else:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default="ZardoCards <info@zardocards.com>")
+ADMIN_NOTIFICATION_EMAIL = config("ADMIN_NOTIFICATION_EMAIL", default="")
