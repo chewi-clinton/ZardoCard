@@ -2,6 +2,7 @@ import { Ubuntu, Barlow } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { MainContent } from "@/components/main-content";
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col bg-black text-white">
         <SiteHeader />
-        <main className="flex-1 pt-28 sm:pt-32">{children}</main>
+        <MainContent>{children}</MainContent>
         <SiteFooter />
       </body>
     </html>

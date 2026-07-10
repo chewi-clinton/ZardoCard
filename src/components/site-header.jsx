@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Search, User, ShoppingCart } from "lucide-react";
 import { NavDrawer } from "@/components/nav-drawer";
 import { CountrySelector } from "@/components/country-selector";
@@ -17,6 +18,7 @@ const SCROLL_THRESHOLD = 460;
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
@@ -24,6 +26,8 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  if (pathname.startsWith("/admin")) return null;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">

@@ -1,5 +1,8 @@
+"use client";
+
 import { ChevronRight, Heart } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { FacebookIcon, InstagramIcon, TikTokIcon } from "@/components/social-icons";
 import { CountrySelector } from "@/components/country-selector";
 import {
@@ -46,6 +49,9 @@ const paymentIcons = [
 ];
 
 export function SiteFooter() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/admin")) return null;
+
   return (
     <footer className="border-t border-border bg-black">
       <div className="mx-auto grid w-full max-w-[1400px] grid-cols-1 gap-10 px-6 pt-14 sm:grid-cols-3">
