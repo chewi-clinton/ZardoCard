@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from .emails import send_admin_order_alert, send_order_confirmation
 from .models import Order, OrderItem
 
 
@@ -19,6 +20,7 @@ class OrderSerializer(serializers.ModelSerializer):
             "order_number",
             "customer_name",
             "customer_email",
+            "payment_method",
             "status",
             "total",
             "items",
@@ -31,4 +33,8 @@ class OrderSerializer(serializers.ModelSerializer):
         order = Order.objects.create(**validated_data)
         for item_data in items_data:
             OrderItem.objects.create(order=order, **item_data)
+
+        send_order_confirmation(order)
+        send_admin_order_alert(order)
+
         return order

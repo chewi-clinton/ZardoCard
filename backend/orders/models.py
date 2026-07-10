@@ -10,9 +10,19 @@ class Order(models.Model):
         FULFILLED = "fulfilled", "Fulfilled"
         CANCELLED = "cancelled", "Cancelled"
 
+    class PaymentMethod(models.TextChoices):
+        ZELLE = "zelle", "Zelle"
+        CHIME = "chime", "Chime"
+        APPLE_PAY = "apple_pay", "Apple Pay"
+        CASH_APP = "cash_app", "Cash App"
+        E_TRANSFER = "e_transfer", "E-Transfer"
+        VENMO = "venmo", "Venmo"
+        CRYPTO = "crypto", "Crypto"
+
     order_number = models.CharField(max_length=32, unique=True)
     customer_name = models.CharField(max_length=255)
     customer_email = models.EmailField()
+    payment_method = models.CharField(max_length=20, choices=PaymentMethod.choices)
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.PENDING)
     total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
