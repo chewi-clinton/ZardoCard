@@ -1,37 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ZardoCards MinIO
 
-## Getting Started
+Standalone MinIO deployment for the ZardoCards backend's image storage.
+This branch's only purpose is the Dockerfile needed to deploy it —
+everything else in the repo is leftover scaffold from other branches
+and isn't used by this build.
 
-First, run the development server:
+## Deploying on Dokploy
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Create a new application pointing at this repo, branch `minio`, build type **Dockerfile**.
+2. Set these environment variables:
+   - `MINIO_ROOT_USER` — access key (pick something new, not a real username)
+   - `MINIO_ROOT_PASSWORD` — secret key (at least 8 characters)
+3. Expose both ports:
+   - `9000` — the S3-compatible API (this is what the backend talks to)
+   - `9001` — the web console (optional, for browsing buckets by hand)
+4. Attach a **persistent volume** mounted at `/data` — without this, all
+   uploaded images are lost on redeploy.
+5. Attach a domain to port `9000` if you want the API reachable at a
+   real hostname (recommended) instead of an IP:port.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## After it's deployed
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Send over:
+- The endpoint URL (e.g. `https://minio.yourdomain.com` or `http://ip:9000`)
+- `MINIO_ROOT_USER` / `MINIO_ROOT_PASSWORD`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# ZardoCard
+I'll create the bucket, set its read policy, and point the Django
+backend's `MINIO_*` settings at it.
