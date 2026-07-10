@@ -35,3 +35,22 @@ export function getCollectionProducts(handle) {
   if (!collection) return [];
   return collection.productHandles.map(toCardProduct).filter(Boolean);
 }
+
+export function getAllProductsSummary() {
+  return Object.values(products).map((p) => ({
+    handle: p.handle,
+    title: p.title,
+    image: p.localImage,
+    price: p.price,
+    vendor: p.vendor,
+  }));
+}
+
+export function getAllCollectionsSummary() {
+  return Object.values(collections).map((c) => ({
+    handle: c.handle,
+    title: c.title,
+    image: c.bannerImage,
+    productCount: c.productHandles?.length ?? 0,
+  }));
+}
