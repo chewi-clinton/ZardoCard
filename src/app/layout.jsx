@@ -6,6 +6,7 @@ import { MainContent } from "@/components/main-content";
 import { CartProvider } from "@/lib/cart-context";
 import { CartDrawer } from "@/components/cart-drawer";
 import { CurrencyProvider } from "@/lib/currency-context";
+import { TawkChat } from "@/components/tawk-chat";
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
             <CartDrawer />
           </CartProvider>
         </CurrencyProvider>
+        <TawkChat />
       </body>
     </html>
   );
