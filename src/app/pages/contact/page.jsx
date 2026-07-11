@@ -1,6 +1,13 @@
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+export const metadata = {
+  title: "Contact Us",
+  description:
+    "Get in touch with ZardoCards for questions about your order, shipping, or our Pokémon card inventory. Average response time 1-24 hours.",
+  alternates: { canonical: "/pages/contact" },
+};
+
 const faq = [
   {
     question: "Where do you ship to?",

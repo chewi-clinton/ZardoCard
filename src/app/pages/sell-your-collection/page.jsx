@@ -1,5 +1,12 @@
 import { ButtonLink } from "@/components/ui/button";
 
+export const metadata = {
+  title: "Sell Your Collection",
+  description:
+    "Sell your Pokémon cards, slabs, or sealed product to ZardoCards. Send us your collection details and we'll get back to you.",
+  alternates: { canonical: "/pages/sell-your-collection" },
+};
+
 export default function SellYourCollectionPage() {
   return (
     <div className="mx-auto flex w-full max-w-[700px] flex-col items-center gap-4 px-4 py-24 text-center sm:px-6">

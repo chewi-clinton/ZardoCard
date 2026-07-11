@@ -8,6 +8,38 @@ import { getProduct } from "@/lib/catalog";
 
 export const revalidate = 60;
 
+function stripHtml(html) {
+  return (html || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+export async function generateMetadata({ params }) {
+  const { handle } = await params;
+  const product = await getProduct(handle);
+  if (!product) return {};
+
+  const description = stripHtml(product.description).slice(0, 160);
+  const title = product.title;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/products/${handle}` },
+    openGraph: {
+      type: "website",
+      title,
+      description,
+      url: `/products/${handle}`,
+      images: product.image ? [{ url: product.image }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: product.image ? [product.image] : undefined,
+    },
+  };
+}
+
 const accordions = [
   {
     icon: ShieldCheck,
@@ -29,8 +61,28 @@ export default async function ProductPage({ params }) {
   const onSale =
     product.displayCompareAtPrice && product.displayCompareAtPrice > product.displayPrice;
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    description: stripHtml(product.description),
+    image: product.image ? [product.image] : undefined,
+    brand: { "@type": "Brand", name: product.vendor || "ZardoCards" },
+    offers: {
+      "@type": "Offer",
+      url: `https://zardocard.com/products/${handle}`,
+      priceCurrency: "USD",
+      price: product.displayPrice.toFixed(2),
+      availability: "https://schema.org/InStock",
+    },
+  };
+
   return (
     <div className="mx-auto w-full max-w-[1400px] px-4 py-10 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <nav className="mb-6 text-xs text-muted">
         <Link href="/" className="hover:text-accent">
           Home

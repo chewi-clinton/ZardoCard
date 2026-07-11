@@ -1,5 +1,11 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Shop By Languages",
+  description: "Browse ZardoCards' Japanese Pokémon booster boxes and booster packs.",
+  alternates: { canonical: "/pages/lang" },
+};
+
 const languageLinks = [
   { label: "Japanese Booster Boxes", href: "/collections/japanese-booster-box" },
   { label: "Japanese Booster Packs", href: "/collections/japanese-booster-packs" },

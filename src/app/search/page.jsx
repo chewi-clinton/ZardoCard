@@ -3,6 +3,11 @@ import { searchProducts, toCardProduct } from "@/lib/catalog";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Search",
+  robots: { index: false, follow: true },
+};
+
 export default async function SearchPage({ searchParams }) {
   const { q = "" } = await searchParams;
   const results = q ? (await searchProducts(q, { pageSize: 48 })).map(toCardProduct) : [];
