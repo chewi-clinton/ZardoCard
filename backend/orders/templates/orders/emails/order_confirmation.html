@@ -14,7 +14,7 @@
             <td style="padding:28px 24px 8px 24px;">
               <h1 style="color:#ffffff; font-size:20px; margin:0 0 8px 0;">Thanks for your order, {{ order.customer_name }}!</h1>
               <p style="color:#a3a3a3; font-size:14px; margin:0 0 20px 0;">
-                We've received order <strong style="color:#ffffff;">{{ order.order_number }}</strong> and will confirm it once payment is verified.
+                We've received order <strong style="color:#ffffff;">{{ order.order_number }}</strong>. You haven't been charged yet — we'll follow up shortly with the payment details for <strong style="color:#ffffff;">{{ order.get_payment_method_display }}</strong>, and confirm your order once payment is received.
               </p>
             </td>
           </tr>
