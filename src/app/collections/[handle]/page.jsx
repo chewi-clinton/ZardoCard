@@ -4,7 +4,7 @@ import { CollectionHero } from "@/components/collection-hero";
 import { CollectionProductGrid } from "@/components/collection-product-grid";
 import { getCollection, getCollectionProducts, toCardProduct } from "@/lib/catalog";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function CollectionPage({ params }) {
   const { handle } = await params;

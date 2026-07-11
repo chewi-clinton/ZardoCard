@@ -6,7 +6,7 @@ import { AddToCart } from "@/components/add-to-cart";
 import { Price } from "@/components/price";
 import { getProduct } from "@/lib/catalog";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 const accordions = [
   {

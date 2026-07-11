@@ -8,7 +8,7 @@ import { FaqAccordion } from "@/components/faq-accordion";
 import { TrustBadges } from "@/components/trust-badges";
 import { getCollectionProducts, toCardProduct } from "@/lib/catalog";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 const categories = [
   { label: "Slabs", href: "/collections/all-slabs", image: "/images/category-slabs.png" },
