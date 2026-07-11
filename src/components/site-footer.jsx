@@ -3,7 +3,7 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { FacebookIcon, TikTokIcon } from "@/components/social-icons";
+import { FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/social-icons";
 import { CountrySelector } from "@/components/country-selector";
 import {
   AmexIcon,
@@ -35,6 +35,7 @@ const socialLinks = [
     Icon: FacebookIcon,
   },
   { label: "TikTok", href: "https://www.tiktok.com/@zardocards5", Icon: TikTokIcon },
+  { label: "WhatsApp", href: "https://wa.me/14049849812", Icon: WhatsAppIcon },
 ];
 
 const paymentIcons = [

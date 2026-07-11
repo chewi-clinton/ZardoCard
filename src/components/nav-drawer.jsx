@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { FacebookIcon, TikTokIcon } from "@/components/social-icons";
+import { FacebookIcon, TikTokIcon, WhatsAppIcon } from "@/components/social-icons";
 import navItems from "../../data/nav.json";
 
 function NavNode({ item, onNavigate }) {
@@ -108,6 +108,13 @@ export function NavDrawer() {
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-foreground hover:bg-white/10"
               >
                 <TikTokIcon />
+              </a>
+              <a
+                href="https://wa.me/14049849812"
+                aria-label="WhatsApp"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-foreground hover:bg-white/10"
+              >
+                <WhatsAppIcon />
               </a>
             </div>
           </div>
