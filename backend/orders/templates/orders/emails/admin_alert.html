@@ -24,7 +24,15 @@
                 <tr>
                   <td style="padding:16px;">
                     <p style="color:#a3a3a3; font-size:12px; margin:0 0 4px 0; text-transform:uppercase; letter-spacing:0.5px;">Customer</p>
-                    <p style="color:#ffffff; font-size:14px; margin:0 0 12px 0;">{{ order.customer_name }} &lt;{{ order.customer_email }}&gt;</p>
+                    <p style="color:#ffffff; font-size:14px; margin:0 0 12px 0;">{{ order.customer_name }} &lt;{{ order.customer_email }}&gt;{% if order.phone %} &middot; {{ order.phone }}{% endif %}</p>
+                    {% if order.address_line1 %}
+                    <p style="color:#a3a3a3; font-size:12px; margin:0 0 4px 0; text-transform:uppercase; letter-spacing:0.5px;">Ship to</p>
+                    <p style="color:#ffffff; font-size:14px; margin:0;">
+                      {{ order.address_line1 }}{% if order.address_line2 %}, {{ order.address_line2 }}{% endif %}<br>
+                      {{ order.city }}{% if order.state %}, {{ order.state }}{% endif %} {{ order.zip_code }}<br>
+                      {{ order.country }}
+                    </p>
+                    {% endif %}
                   </td>
                 </tr>
               </table>
