@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Search, User, ShoppingCart } from "lucide-react";
+import { User, ShoppingCart } from "lucide-react";
 import { NavDrawer } from "@/components/nav-drawer";
 import { CountrySelector } from "@/components/country-selector";
+import { SearchBar } from "@/components/search-bar";
+import { useCart } from "@/lib/cart-context";
 
 const announcements = [
   "FREE GIFTS IN EVERY ORDER",
@@ -19,6 +21,7 @@ const SCROLL_THRESHOLD = 460;
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { itemCount, openCart } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
@@ -77,23 +80,25 @@ export function SiteHeader() {
               Sell your collection
             </Link>
             <CountrySelector className="hidden md:flex" />
-            <button
+            <SearchBar />
+            <Link
+              href="/orders/lookup"
               className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
-              aria-label="Search"
-            >
-              <Search size={20} />
-            </button>
-            <button
-              className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
-              aria-label="Account"
+              aria-label="Track your order"
             >
               <User size={20} />
-            </button>
+            </Link>
             <button
-              className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
+              onClick={openCart}
+              className="relative flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
               aria-label="Cart"
             >
               <ShoppingCart size={20} />
+              {itemCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-accent-foreground">
+                  {itemCount}
+                </span>
+              )}
             </button>
           </div>
         </div>

@@ -2,13 +2,10 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, MessageCircle, ShieldCheck, Plane } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { getAllProductHandles, getProduct } from "@/lib/catalog";
-import { applyDisplayPricing } from "@/lib/pricing";
+import { AddToCart } from "@/components/add-to-cart";
+import { getProduct } from "@/lib/catalog";
 
-export function generateStaticParams() {
-  return getAllProductHandles().map((handle) => ({ handle }));
-}
+export const dynamic = "force-dynamic";
 
 const accordions = [
   {
@@ -25,11 +22,11 @@ const accordions = [
 
 export default async function ProductPage({ params }) {
   const { handle } = await params;
-  const product = getProduct(handle);
+  const product = await getProduct(handle);
   if (!product) notFound();
 
-  const { price, compareAtPrice } = applyDisplayPricing(product.price, product.compareAtPrice);
-  const onSale = compareAtPrice && Number(compareAtPrice) > Number(price);
+  const onSale =
+    product.displayCompareAtPrice && product.displayCompareAtPrice > product.displayPrice;
 
   return (
     <div className="mx-auto w-full max-w-[1400px] px-4 py-10 sm:px-6">
@@ -44,9 +41,9 @@ export default async function ProductPage({ params }) {
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div className="flex flex-col gap-3">
           <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-border bg-surface">
-            {product.localImage && (
+            {product.image && (
               <Image
-                src={product.localImage}
+                src={product.image}
                 alt={product.title}
                 fill
                 priority
@@ -64,37 +61,20 @@ export default async function ProductPage({ params }) {
             {onSale ? (
               <>
                 <span className="text-xl font-bold text-red-400">
-                  {product.variantCount > 1 ? "From " : ""}${price}
+                  {product.variantCount > 1 ? "From " : ""}${product.displayPrice.toFixed(2)}
                 </span>
-                <span className="text-lg text-muted line-through">${compareAtPrice}</span>
+                <span className="text-lg text-muted line-through">
+                  ${product.displayCompareAtPrice.toFixed(2)}
+                </span>
               </>
             ) : (
               <span className="text-xl font-bold text-foreground">
-                {product.variantCount > 1 ? "From " : ""}${price}
+                {product.variantCount > 1 ? "From " : ""}${product.displayPrice.toFixed(2)}
               </span>
             )}
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="flex items-center rounded-full border border-border">
-              <button
-                type="button"
-                aria-label="Decrease quantity"
-                className="flex h-11 w-11 items-center justify-center text-lg text-foreground"
-              >
-                −
-              </button>
-              <span className="w-8 text-center text-sm font-semibold">1</span>
-              <button
-                type="button"
-                aria-label="Increase quantity"
-                className="flex h-11 w-11 items-center justify-center text-lg text-foreground"
-              >
-                +
-              </button>
-            </div>
-            <Button className="flex-1">Add to cart</Button>
-          </div>
+          <AddToCart product={product} />
 
           <div className="mt-2 divide-y divide-border border-t border-border">
             <details className="group py-4" open>
@@ -110,7 +90,7 @@ export default async function ProductPage({ params }) {
               </summary>
               <div
                 className="prose prose-invert mt-3 max-w-none text-sm text-muted"
-                dangerouslySetInnerHTML={{ __html: product.bodyHtml || "" }}
+                dangerouslySetInnerHTML={{ __html: product.description || "" }}
               />
             </details>
 

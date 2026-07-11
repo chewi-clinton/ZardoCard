@@ -6,12 +6,9 @@ import { ReviewsSection } from "@/components/reviews-section";
 import { MysteryPromo } from "@/components/mystery-promo";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { TrustBadges } from "@/components/trust-badges";
-import { applyDisplayPricing } from "@/lib/pricing";
-import homepageProducts from "../../data/homepage-products.json";
+import { getCollectionProducts, toCardProduct } from "@/lib/catalog";
 
-function withDisplayPricing(list) {
-  return list.map((p) => ({ ...p, ...applyDisplayPricing(p.price, p.compareAtPrice) }));
-}
+export const dynamic = "force-dynamic";
 
 const categories = [
   { label: "Slabs", href: "/collections/all-slabs", image: "/images/category-slabs.png" },
@@ -30,7 +27,19 @@ const categories = [
   { label: "Tins", href: "/collections/tins-chests", image: "/images/category-tins.png" },
 ];
 
-export default function Home() {
+async function carouselProducts(handle) {
+  const products = await getCollectionProducts(handle, { pageSize: 12 });
+  return products.map(toCardProduct);
+}
+
+export default async function Home() {
+  const [newArrivals, singles, slabs, sealed] = await Promise.all([
+    carouselProducts("✨-new-arrivals"),
+    carouselProducts("raw-cards"),
+    carouselProducts("all-slabs"),
+    carouselProducts("sealed-1"),
+  ]);
+
   return (
     <div className="flex flex-col">
       <section className="relative -mt-28 flex min-h-[520px] items-center justify-center overflow-hidden sm:-mt-32">
@@ -48,7 +57,7 @@ export default function Home() {
           <h1 className="max-w-2xl text-4xl font-extrabold sm:text-5xl">
             The #1 Online Pokémon Store
           </h1>
-          <ButtonLink href="/collections/new-arrivals">Shop New Arrivals !</ButtonLink>
+          <ButtonLink href="/collections/✨-new-arrivals">Shop New Arrivals !</ButtonLink>
         </div>
       </section>
 
@@ -76,8 +85,8 @@ export default function Home() {
 
       <ProductCarousel
         title="Explore our New Arrivals"
-        viewAllHref="/collections/new-arrivals"
-        products={withDisplayPricing(homepageProducts["new-arrivals"])}
+        viewAllHref="/collections/✨-new-arrivals"
+        products={newArrivals}
       />
 
       <PromoGrid />
@@ -85,19 +94,19 @@ export default function Home() {
       <ProductCarousel
         title="Explore all our Singles"
         viewAllHref="/collections/raw-cards"
-        products={withDisplayPricing(homepageProducts.singles)}
+        products={singles}
       />
 
       <ProductCarousel
         title="Explore our Slabs"
         viewAllHref="/collections/all-slabs"
-        products={withDisplayPricing(homepageProducts.slabs)}
+        products={slabs}
       />
 
       <ProductCarousel
         title="Explore all our Sealed Products"
         viewAllHref="/collections/sealed-1"
-        products={withDisplayPricing(homepageProducts.sealed)}
+        products={sealed}
       />
 
       <ReviewsSection />

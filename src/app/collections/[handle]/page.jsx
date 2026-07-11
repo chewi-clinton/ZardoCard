@@ -2,18 +2,16 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CollectionHero } from "@/components/collection-hero";
 import { CollectionProductGrid } from "@/components/collection-product-grid";
-import { getAllCollectionHandles, getCollection, getCollectionProducts } from "@/lib/catalog";
+import { getCollection, getCollectionProducts, toCardProduct } from "@/lib/catalog";
 
-export function generateStaticParams() {
-  return getAllCollectionHandles().map((handle) => ({ handle }));
-}
+export const dynamic = "force-dynamic";
 
 export default async function CollectionPage({ params }) {
   const { handle } = await params;
-  const collection = getCollection(handle);
+  const collection = await getCollection(handle);
   if (!collection) notFound();
 
-  const products = getCollectionProducts(handle);
+  const products = (await getCollectionProducts(handle)).map(toCardProduct);
 
   return (
     <div className="flex flex-col">
