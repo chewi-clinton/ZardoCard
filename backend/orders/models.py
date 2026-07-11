@@ -17,6 +17,7 @@ class Order(models.Model):
         CASH_APP = "cash_app", "Cash App"
         E_TRANSFER = "e_transfer", "E-Transfer"
         VENMO = "venmo", "Venmo"
+        PAY_ID = "pay_id", "PayID"
         CRYPTO = "crypto", "Crypto"
 
     order_number = models.CharField(max_length=32, unique=True)
