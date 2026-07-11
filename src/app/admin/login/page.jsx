@@ -3,13 +3,22 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { Eye, EyeOff } from "lucide-react";
 import { login } from "@/lib/auth";
 import { ApiError } from "@/lib/api";
 
+// text-base (16px) instead of text-sm (14px) on purpose: iOS Safari
+// auto-zooms the whole page in when focusing an input with a computed
+// font-size under 16px, and doesn't reliably zoom back out — the "card
+// expands past the screen until you pinch" bug.
+const inputClass =
+  "w-full rounded-lg border border-border bg-transparent px-4 py-2.5 text-base text-foreground placeholder:text-muted/60 focus:outline-none focus:ring-1 focus:ring-accent";
+
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
@@ -18,12 +27,12 @@ export default function AdminLoginPage() {
     setSubmitting(true);
     setError(null);
     try {
-      await login(username, password);
+      await login(email, password);
       router.push("/admin");
     } catch (err) {
       setError(
-        err instanceof ApiError && err.status === 401
-          ? "Incorrect username or password."
+        err instanceof ApiError && (err.status === 401 || err.status === 400)
+          ? "Incorrect email or password."
           : "Something went wrong signing in. Please try again."
       );
       setSubmitting(false);
@@ -43,31 +52,42 @@ export default function AdminLoginPage() {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="username" className="text-xs font-semibold text-muted">
-              Username
+            <label htmlFor="email" className="text-xs font-semibold text-muted">
+              Email
             </label>
             <input
-              id="username"
+              id="email"
+              type="email"
               required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="admin"
-              className="rounded-lg border border-border bg-transparent px-4 py-2.5 text-sm text-foreground placeholder:text-muted/60 focus:outline-none focus:ring-1 focus:ring-accent"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="admin@zardocard.com"
+              className={inputClass}
             />
           </div>
           <div className="flex flex-col gap-1.5">
             <label htmlFor="password" className="text-xs font-semibold text-muted">
               Password
             </label>
-            <input
-              id="password"
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="rounded-lg border border-border bg-transparent px-4 py-2.5 text-sm text-foreground placeholder:text-muted/60 focus:outline-none focus:ring-1 focus:ring-accent"
-            />
+            <div className="relative">
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                className={`${inputClass} pr-11`}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                className="absolute inset-y-0 right-0 flex w-11 items-center justify-center text-muted hover:text-foreground"
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
           </div>
 
           {error && <p className="text-sm text-red-400">{error}</p>}

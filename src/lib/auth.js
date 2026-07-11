@@ -29,10 +29,10 @@ export function isLoggedIn() {
   return Boolean(getAccessToken());
 }
 
-export async function login(username, password) {
+export async function login(email, password) {
   const data = await apiFetch("/api/auth/login/", {
     method: "POST",
-    body: { username, password },
+    body: { email, password },
   });
   setTokens(data);
   return data;
