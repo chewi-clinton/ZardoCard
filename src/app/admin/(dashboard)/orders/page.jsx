@@ -45,8 +45,8 @@ export default function AdminOrdersPage() {
     <div>
       <h1 className="text-2xl font-extrabold text-foreground">Orders</h1>
 
-      <div className="mt-4 overflow-hidden rounded-xl border border-border">
-        <table className="w-full text-sm">
+      <div className="mt-4 overflow-x-auto rounded-xl border border-border">
+        <table className="w-full min-w-180 text-sm">
           <thead>
             <tr className="border-b border-border bg-surface text-left text-xs font-semibold uppercase text-muted">
               <th className="px-4 py-3">Order</th>

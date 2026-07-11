@@ -53,8 +53,8 @@ export function CategoriesTable({ initialCategories }) {
         />
       </div>
 
-      <div className="mt-4 overflow-hidden rounded-xl border border-border">
-        <table className="w-full text-sm">
+      <div className="mt-4 overflow-x-auto rounded-xl border border-border">
+        <table className="w-full min-w-160 text-sm">
           <thead>
             <tr className="border-b border-border bg-surface text-left text-xs font-semibold uppercase text-muted">
               <th className="px-4 py-3">Category</th>
