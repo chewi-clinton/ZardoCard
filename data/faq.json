@@ -5,7 +5,7 @@
   },
   {
     "question": "How can I place an order?",
-    "answer": "<p>You can place an order directly through our website <a href=\"https://zardocards.com\" title=\"https://zardocards.com\">zardocards.com</a></p><p>Simply browse our collections, add items to your cart, and check out securely.</p>"
+    "answer": "<p>You can place an order directly through our website <a href=\"https://zardocard.com\" title=\"https://zardocard.com\">zardocard.com</a></p><p>Simply browse our collections, add items to your cart, and check out securely.</p>"
   },
   {
     "question": "Do you ship internationally?",
@@ -25,7 +25,7 @@
   },
   {
     "question": "Can I sell my Pok\u00e9mon cards to ZardoCards?",
-    "answer": "<p>You can ! Please contact us via the form in <a href=\"/pages/contact\" title=\"Contact Us\">contact us</a> or via email at info@zardocards.com</p>"
+    "answer": "<p>You can ! Please contact us via the form in <a href=\"/pages/contact\" title=\"Contact Us\">contact us</a> or via email at info@zardocard.com</p>"
   },
   {
     "question": "Do you have a physical store?",
@@ -33,6 +33,6 @@
   },
   {
     "question": "How can I contact ZardoCards?",
-    "answer": "<p>You can reach our customer support team via email at info@zardocards.com or through the contact form on our website.</p>"
+    "answer": "<p>You can reach our customer support team via email at info@zardocard.com or through the contact form on our website.</p>"
   }
 ]

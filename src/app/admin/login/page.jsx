@@ -34,7 +34,7 @@ export default function AdminLoginPage() {
               id="email"
               type="email"
               required
-              placeholder="admin@zardocards.com"
+              placeholder="admin@zardocard.com"
               className="rounded-lg border border-border bg-transparent px-4 py-2.5 text-sm text-foreground placeholder:text-muted/60 focus:outline-none focus:ring-1 focus:ring-accent"
             />
           </div>

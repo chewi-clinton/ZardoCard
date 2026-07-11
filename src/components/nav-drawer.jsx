@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { FacebookIcon, InstagramIcon, TikTokIcon } from "@/components/social-icons";
+import { FacebookIcon, TikTokIcon } from "@/components/social-icons";
 import navItems from "../../data/nav.json";
 
 function NavNode({ item, onNavigate }) {
@@ -89,21 +89,14 @@ export function NavDrawer() {
 
             <div className="mt-auto flex gap-3 pt-6">
               <a
-                href="https://www.facebook.com/zardo_cards/"
+                href="https://www.facebook.com/share/1BQgKXqqS6/?mibextid=wwXIfr"
                 aria-label="Facebook"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-foreground hover:bg-white/10"
               >
                 <FacebookIcon />
               </a>
               <a
-                href="https://www.instagram.com/zardo_cards/"
-                aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-foreground hover:bg-white/10"
-              >
-                <InstagramIcon />
-              </a>
-              <a
-                href="https://www.tiktok.com/@zardo_cards"
+                href="https://www.tiktok.com/@zardocards5"
                 aria-label="TikTok"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-foreground hover:bg-white/10"
               >

@@ -3,7 +3,7 @@
 import { ChevronRight, Heart } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { FacebookIcon, InstagramIcon, TikTokIcon } from "@/components/social-icons";
+import { FacebookIcon, TikTokIcon } from "@/components/social-icons";
 import { CountrySelector } from "@/components/country-selector";
 import {
   AmexIcon,
@@ -29,9 +29,12 @@ const policyLinks = [
 ];
 
 const socialLinks = [
-  { label: "Facebook", href: "https://www.facebook.com/zardo_cards/", Icon: FacebookIcon },
-  { label: "Instagram", href: "https://www.instagram.com/zardo_cards/", Icon: InstagramIcon },
-  { label: "TikTok", href: "https://www.tiktok.com/@zardo_cards", Icon: TikTokIcon },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1BQgKXqqS6/?mibextid=wwXIfr",
+    Icon: FacebookIcon,
+  },
+  { label: "TikTok", href: "https://www.tiktok.com/@zardocards5", Icon: TikTokIcon },
 ];
 
 const paymentIcons = [
