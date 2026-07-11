@@ -11,6 +11,7 @@ import {
   ArrowLeftRight,
   CreditCard,
   Bitcoin,
+  IdCard,
 } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { useCurrency } from "@/lib/currency-context";
@@ -25,6 +26,7 @@ const PAYMENT_METHODS = [
   { value: "cash_app", label: "Cash App", Icon: DollarSign },
   { value: "e_transfer", label: "E-Transfer", Icon: ArrowLeftRight },
   { value: "venmo", label: "Venmo", Icon: CreditCard },
+  { value: "pay_id", label: "PayID", Icon: IdCard },
   { value: "crypto", label: "Crypto", Icon: Bitcoin },
 ];
 

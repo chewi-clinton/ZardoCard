@@ -13,6 +13,7 @@ const PAYMENT_LABELS = {
   cash_app: "Cash App",
   e_transfer: "E-Transfer",
   venmo: "Venmo",
+  pay_id: "PayID",
   crypto: "Crypto",
 };
 
