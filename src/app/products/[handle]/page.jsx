@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronDown, MessageCircle, ShieldCheck, Plane } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getAllProductHandles, getProduct } from "@/lib/catalog";
+import { applyDisplayPricing } from "@/lib/pricing";
 
 export function generateStaticParams() {
   return getAllProductHandles().map((handle) => ({ handle }));
@@ -27,7 +28,8 @@ export default async function ProductPage({ params }) {
   const product = getProduct(handle);
   if (!product) notFound();
 
-  const onSale = product.compareAtPrice && product.compareAtPrice > product.price;
+  const { price, compareAtPrice } = applyDisplayPricing(product.price, product.compareAtPrice);
+  const onSale = compareAtPrice && Number(compareAtPrice) > Number(price);
 
   return (
     <div className="mx-auto w-full max-w-[1400px] px-4 py-10 sm:px-6">
@@ -62,15 +64,13 @@ export default async function ProductPage({ params }) {
             {onSale ? (
               <>
                 <span className="text-xl font-bold text-red-400">
-                  {product.variantCount > 1 ? "From " : ""}${product.price.toFixed(2)}
+                  {product.variantCount > 1 ? "From " : ""}${price}
                 </span>
-                <span className="text-lg text-muted line-through">
-                  ${product.compareAtPrice.toFixed(2)}
-                </span>
+                <span className="text-lg text-muted line-through">${compareAtPrice}</span>
               </>
             ) : (
               <span className="text-xl font-bold text-foreground">
-                {product.variantCount > 1 ? "From " : ""}${product.price?.toFixed(2)}
+                {product.variantCount > 1 ? "From " : ""}${price}
               </span>
             )}
           </div>

@@ -6,7 +6,12 @@ import { ReviewsSection } from "@/components/reviews-section";
 import { MysteryPromo } from "@/components/mystery-promo";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { TrustBadges } from "@/components/trust-badges";
+import { applyDisplayPricing } from "@/lib/pricing";
 import homepageProducts from "../../data/homepage-products.json";
+
+function withDisplayPricing(list) {
+  return list.map((p) => ({ ...p, ...applyDisplayPricing(p.price, p.compareAtPrice) }));
+}
 
 const categories = [
   { label: "Slabs", href: "/collections/all-slabs", image: "/images/category-slabs.png" },
@@ -72,7 +77,7 @@ export default function Home() {
       <ProductCarousel
         title="Explore our New Arrivals"
         viewAllHref="/collections/new-arrivals"
-        products={homepageProducts["new-arrivals"]}
+        products={withDisplayPricing(homepageProducts["new-arrivals"])}
       />
 
       <PromoGrid />
@@ -80,19 +85,19 @@ export default function Home() {
       <ProductCarousel
         title="Explore all our Singles"
         viewAllHref="/collections/raw-cards"
-        products={homepageProducts.singles}
+        products={withDisplayPricing(homepageProducts.singles)}
       />
 
       <ProductCarousel
         title="Explore our Slabs"
         viewAllHref="/collections/all-slabs"
-        products={homepageProducts.slabs}
+        products={withDisplayPricing(homepageProducts.slabs)}
       />
 
       <ProductCarousel
         title="Explore all our Sealed Products"
         viewAllHref="/collections/sealed-1"
-        products={homepageProducts.sealed}
+        products={withDisplayPricing(homepageProducts.sealed)}
       />
 
       <ReviewsSection />

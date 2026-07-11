@@ -1,5 +1,6 @@
 import collections from "../../data/collections.json";
 import products from "../../data/products.json";
+import { applyDisplayPricing } from "@/lib/pricing";
 
 export function getCollection(handle) {
   return collections[handle] ?? null;
@@ -20,12 +21,13 @@ export function getAllProductHandles() {
 export function toCardProduct(handle) {
   const p = products[handle];
   if (!p) return null;
+  const { price, compareAtPrice } = applyDisplayPricing(p.price, p.compareAtPrice);
   return {
     handle: p.handle,
     title: p.title,
     image: p.localImage,
-    price: p.price != null ? p.price.toFixed(2) : "0.00",
-    compareAtPrice: p.compareAtPrice != null ? p.compareAtPrice.toFixed(2) : null,
+    price,
+    compareAtPrice,
     fromPrice: p.variantCount > 1,
   };
 }
