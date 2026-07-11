@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, MessageCircle, ShieldCheck, Plane } from "lucide-react";
 import { AddToCart } from "@/components/add-to-cart";
+import { Price } from "@/components/price";
 import { getProduct } from "@/lib/catalog";
 
 export const dynamic = "force-dynamic";
@@ -61,15 +62,17 @@ export default async function ProductPage({ params }) {
             {onSale ? (
               <>
                 <span className="text-xl font-bold text-red-400">
-                  {product.variantCount > 1 ? "From " : ""}${product.displayPrice.toFixed(2)}
+                  {product.variantCount > 1 ? "From " : ""}
+                  <Price amount={product.displayPrice} />
                 </span>
                 <span className="text-lg text-muted line-through">
-                  ${product.displayCompareAtPrice.toFixed(2)}
+                  <Price amount={product.displayCompareAtPrice} />
                 </span>
               </>
             ) : (
               <span className="text-xl font-bold text-foreground">
-                {product.variantCount > 1 ? "From " : ""}${product.displayPrice.toFixed(2)}
+                {product.variantCount > 1 ? "From " : ""}
+                <Price amount={product.displayPrice} />
               </span>
             )}
           </div>

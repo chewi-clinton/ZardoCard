@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { MainContent } from "@/components/main-content";
 import { CartProvider } from "@/lib/cart-context";
 import { CartDrawer } from "@/components/cart-drawer";
+import { CurrencyProvider } from "@/lib/currency-context";
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -31,12 +32,14 @@ export default function RootLayout({ children }) {
       className={`${ubuntu.variable} ${barlow.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-black text-white">
-        <CartProvider>
-          <SiteHeader />
-          <MainContent>{children}</MainContent>
-          <SiteFooter />
-          <CartDrawer />
-        </CartProvider>
+        <CurrencyProvider>
+          <CartProvider>
+            <SiteHeader />
+            <MainContent>{children}</MainContent>
+            <SiteFooter />
+            <CartDrawer />
+          </CartProvider>
+        </CurrencyProvider>
       </body>
     </html>
   );

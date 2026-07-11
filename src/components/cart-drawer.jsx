@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { X, Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
+import { Price } from "@/components/price";
 
 export function CartDrawer() {
   const { items, removeItem, updateQuantity, subtotal, drawerOpen, closeCart } = useCart();
@@ -67,7 +68,9 @@ export function CartDrawer() {
                           <Trash2 size={15} />
                         </button>
                       </div>
-                      <span className="text-sm text-muted">${item.price}</span>
+                      <span className="text-sm text-muted">
+                        <Price amount={item.price} />
+                      </span>
                       <div className="mt-1 flex items-center rounded-full border border-border w-fit">
                         <button
                           onClick={() => updateQuantity(item.handle, item.quantity - 1)}
@@ -96,7 +99,7 @@ export function CartDrawer() {
             <div className="border-t border-border p-6">
               <div className="mb-4 flex items-center justify-between text-sm font-bold text-foreground">
                 <span>Subtotal</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <Price amount={subtotal} />
               </div>
               <Link
                 href="/checkout"

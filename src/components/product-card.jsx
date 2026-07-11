@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Price } from "@/components/price";
 
 export function ProductCard({ product }) {
   const { title, image, price, compareAtPrice, fromPrice, badge } = product;
   const onSale = compareAtPrice && Number(compareAtPrice) > Number(price);
-  const save = onSale ? (Number(compareAtPrice) - Number(price)).toFixed(2) : null;
+  const save = onSale ? Number(compareAtPrice) - Number(price) : null;
 
   return (
     <Link
@@ -21,7 +22,7 @@ export function ProductCard({ product }) {
         />
         {onSale && (
           <span className="absolute top-2 left-2 rounded-full bg-accent px-2.5 py-1 text-[11px] font-bold text-accent-foreground">
-            Save ${save}
+            Save <Price amount={save} />
           </span>
         )}
         {badge && !onSale && (
@@ -36,13 +37,17 @@ export function ProductCard({ product }) {
           {onSale ? (
             <>
               <span className="text-red-400">
-                {fromPrice ? "From " : ""}${price}
+                {fromPrice ? "From " : ""}
+                <Price amount={price} />
               </span>
-              <span className="text-muted line-through">${compareAtPrice}</span>
+              <span className="text-muted line-through">
+                <Price amount={compareAtPrice} />
+              </span>
             </>
           ) : (
             <span className="text-muted">
-              {fromPrice ? "From " : ""}${price}
+              {fromPrice ? "From " : ""}
+              <Price amount={price} />
             </span>
           )}
         </span>
