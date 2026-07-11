@@ -5,14 +5,26 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Trash2, ImageOff } from "lucide-react";
 import { htmlToText } from "@/lib/html";
+import { authFetch } from "@/lib/auth";
 
 const inputClass =
   "rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-1 focus:ring-accent";
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
 
 export function CategoryForm({ category }) {
   const router = useRouter();
   const isEditing = Boolean(category);
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState(category?.bannerImage ?? null);
   const [form, setForm] = useState({
     title: category?.title ?? "",
     description: htmlToText(category?.description),
@@ -22,17 +34,46 @@ export function CategoryForm({ category }) {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setSaving(true);
-    setTimeout(() => {
-      router.push("/admin/categories");
-    }, 400);
+  function handleImageChange(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file));
   }
 
-  function handleDelete() {
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSaving(true);
+    setError(null);
+
+    const body = new FormData();
+    body.append("title", form.title);
+    body.append("description", form.description);
+    if (!isEditing) body.append("handle", slugify(form.title));
+    if (imageFile) body.append("banner_image", imageFile);
+
+    try {
+      const path = isEditing
+        ? `/api/categories/${encodeURIComponent(category.handle)}/`
+        : "/api/categories/";
+      await authFetch(path, { method: isEditing ? "PATCH" : "POST", body, isFormData: true });
+      router.push("/admin/categories");
+    } catch (err) {
+      setError(err.message || "Failed to save category.");
+      setSaving(false);
+    }
+  }
+
+  async function handleDelete() {
     if (!confirm("Delete this category?")) return;
-    router.push("/admin/categories");
+    try {
+      await authFetch(`/api/categories/${encodeURIComponent(category.handle)}/`, {
+        method: "DELETE",
+      });
+      router.push("/admin/categories");
+    } catch (err) {
+      alert(err.message || "Failed to delete category.");
+    }
   }
 
   return (
@@ -75,9 +116,7 @@ export function CategoryForm({ category }) {
 
           {isEditing && (
             <Field label="Products in this category">
-              <p className="text-sm text-foreground">
-                {category.productHandles?.length ?? 0} products
-              </p>
+              <p className="text-sm text-foreground">{category.productCount ?? 0} products</p>
             </Field>
           )}
         </div>
@@ -85,21 +124,30 @@ export function CategoryForm({ category }) {
         <div className="flex flex-col gap-5">
           <Field label="Banner image">
             <div className="flex aspect-[2/1] w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-surface">
-              {category?.bannerImage ? (
+              {imagePreview ? (
                 <Image
-                  src={category.bannerImage}
+                  src={imagePreview}
                   alt=""
                   width={400}
                   height={200}
                   className="h-full w-full object-cover"
+                  unoptimized={imagePreview.startsWith("blob:")}
                 />
               ) : (
                 <ImageOff className="text-muted" size={28} />
               )}
             </div>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="mt-2 text-xs text-muted file:mr-3 file:rounded-full file:border-0 file:bg-surface file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-foreground"
+            />
           </Field>
         </div>
       </div>
+
+      {error && <p className="mt-4 text-sm text-red-400">{error}</p>}
 
       <div className="mt-8 flex items-center gap-3">
         <button
@@ -109,7 +157,6 @@ export function CategoryForm({ category }) {
         >
           {saving ? "Saving..." : isEditing ? "Save Changes" : "Create Category"}
         </button>
-        <p className="text-xs text-muted">Not connected to a backend yet — nothing persists.</p>
       </div>
     </form>
   );

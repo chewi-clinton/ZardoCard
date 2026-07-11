@@ -4,10 +4,12 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Search, Pencil, Trash2, Plus, ImageOff } from "lucide-react";
+import { authFetch } from "@/lib/auth";
 
 export function CategoriesTable({ initialCategories }) {
   const [categories, setCategories] = useState(initialCategories);
   const [query, setQuery] = useState("");
+  const [deleting, setDeleting] = useState(null);
 
   const filtered = useMemo(() => {
     if (!query.trim()) return categories;
@@ -15,9 +17,17 @@ export function CategoriesTable({ initialCategories }) {
     return categories.filter((c) => c.title.toLowerCase().includes(q));
   }, [categories, query]);
 
-  function handleDelete(handle) {
-    if (!confirm("Delete this category? This only removes it from the current view.")) return;
-    setCategories((prev) => prev.filter((c) => c.handle !== handle));
+  async function handleDelete(handle) {
+    if (!confirm("Delete this category? This cannot be undone.")) return;
+    setDeleting(handle);
+    try {
+      await authFetch(`/api/categories/${encodeURIComponent(handle)}/`, { method: "DELETE" });
+      setCategories((prev) => prev.filter((c) => c.handle !== handle));
+    } catch (err) {
+      alert(err.message || "Failed to delete category.");
+    } finally {
+      setDeleting(null);
+    }
   }
 
   return (
@@ -59,8 +69,8 @@ export function CategoriesTable({ initialCategories }) {
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-3">
                     <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-black">
-                      {category.image ? (
-                        <Image src={category.image} alt="" fill className="object-cover" />
+                      {category.bannerImage ? (
+                        <Image src={category.bannerImage} alt="" fill sizes="48px" className="object-cover" />
                       ) : (
                         <ImageOff size={16} className="text-muted" />
                       )}
@@ -83,8 +93,9 @@ export function CategoriesTable({ initialCategories }) {
                     </Link>
                     <button
                       onClick={() => handleDelete(category.handle)}
+                      disabled={deleting === category.handle}
                       aria-label="Delete"
-                      className="flex h-8 w-8 items-center justify-center rounded-md text-muted hover:bg-red-500/10 hover:text-red-400"
+                      className="flex h-8 w-8 items-center justify-center rounded-md text-muted hover:bg-red-500/10 hover:text-red-400 disabled:opacity-40"
                     >
                       <Trash2 size={15} />
                     </button>

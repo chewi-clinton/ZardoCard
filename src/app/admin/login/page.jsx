@@ -3,15 +3,31 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { login } from "@/lib/auth";
+import { ApiError } from "@/lib/api";
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setSubmitting(true);
-    router.push("/admin");
+    setError(null);
+    try {
+      await login(username, password);
+      router.push("/admin");
+    } catch (err) {
+      setError(
+        err instanceof ApiError && err.status === 401
+          ? "Incorrect username or password."
+          : "Something went wrong signing in. Please try again."
+      );
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -27,14 +43,15 @@ export default function AdminLoginPage() {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="email" className="text-xs font-semibold text-muted">
-              Email
+            <label htmlFor="username" className="text-xs font-semibold text-muted">
+              Username
             </label>
             <input
-              id="email"
-              type="email"
+              id="username"
               required
-              placeholder="admin@zardocard.com"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="admin"
               className="rounded-lg border border-border bg-transparent px-4 py-2.5 text-sm text-foreground placeholder:text-muted/60 focus:outline-none focus:ring-1 focus:ring-accent"
             />
           </div>
@@ -46,10 +63,14 @@ export default function AdminLoginPage() {
               id="password"
               type="password"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               className="rounded-lg border border-border bg-transparent px-4 py-2.5 text-sm text-foreground placeholder:text-muted/60 focus:outline-none focus:ring-1 focus:ring-accent"
             />
           </div>
+
+          {error && <p className="text-sm text-red-400">{error}</p>}
 
           <button
             type="submit"
@@ -59,10 +80,6 @@ export default function AdminLoginPage() {
             {submitting ? "Signing in..." : "Log In"}
           </button>
         </form>
-
-        <p className="mt-6 text-center text-xs text-muted">
-          Demo only — authentication isn&apos;t wired up yet.
-        </p>
       </div>
     </div>
   );

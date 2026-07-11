@@ -1,15 +1,29 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Package, FolderTree, ShoppingBag } from "lucide-react";
-import { getAllProductHandles, getAllCollectionHandles } from "@/lib/catalog";
+import { authFetch } from "@/lib/auth";
 
 export default function AdminDashboardPage() {
-  const productCount = getAllProductHandles().length;
-  const collectionCount = getAllCollectionHandles().length;
+  const [counts, setCounts] = useState({ products: null, categories: null, orders: null });
+
+  useEffect(() => {
+    authFetch("/api/products/?page_size=1")
+      .then((d) => setCounts((c) => ({ ...c, products: d.count })))
+      .catch(() => {});
+    authFetch("/api/categories/?page_size=1")
+      .then((d) => setCounts((c) => ({ ...c, categories: d.count })))
+      .catch(() => {});
+    authFetch("/api/orders/?page_size=1")
+      .then((d) => setCounts((c) => ({ ...c, orders: d.count })))
+      .catch(() => {});
+  }, []);
 
   const stats = [
-    { label: "Products", value: productCount, icon: Package, href: "/admin/products" },
-    { label: "Categories", value: collectionCount, icon: FolderTree, href: "/admin/categories" },
-    { label: "Orders", value: 0, icon: ShoppingBag, href: "/admin/orders" },
+    { label: "Products", value: counts.products, icon: Package, href: "/admin/products" },
+    { label: "Categories", value: counts.categories, icon: FolderTree, href: "/admin/categories" },
+    { label: "Orders", value: counts.orders, icon: ShoppingBag, href: "/admin/orders" },
   ];
 
   return (
@@ -27,7 +41,7 @@ export default function AdminDashboardPage() {
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">
               <Icon size={20} />
             </span>
-            <span className="text-3xl font-extrabold text-foreground">{value}</span>
+            <span className="text-3xl font-extrabold text-foreground">{value ?? "—"}</span>
             <span className="text-sm text-muted">{label}</span>
           </Link>
         ))}
@@ -36,9 +50,8 @@ export default function AdminDashboardPage() {
       <div className="mt-10 rounded-xl border border-border bg-surface p-6">
         <h2 className="text-sm font-bold text-foreground">Getting started</h2>
         <p className="mt-2 text-sm text-muted">
-          Product and category data shown here is scraped from the live reference
-          site. Orders will start appearing once the store is connected to a
-          real backend and starts accepting payments.
+          Product and category data is live from the real store database. Orders
+          appear here as customers check out.
         </p>
       </div>
     </div>

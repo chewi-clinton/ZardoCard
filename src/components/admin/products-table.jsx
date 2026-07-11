@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Search, Pencil, Trash2, ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import { authFetch } from "@/lib/auth";
 
 const PAGE_SIZE = 20;
 
@@ -11,6 +12,7 @@ export function ProductsTable({ initialProducts }) {
   const [products, setProducts] = useState(initialProducts);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
+  const [deleting, setDeleting] = useState(null);
 
   const filtered = useMemo(() => {
     if (!query.trim()) return products;
@@ -21,9 +23,17 @@ export function ProductsTable({ initialProducts }) {
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const pageItems = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  function handleDelete(handle) {
-    if (!confirm("Delete this product? This only removes it from the current view.")) return;
-    setProducts((prev) => prev.filter((p) => p.handle !== handle));
+  async function handleDelete(handle) {
+    if (!confirm("Delete this product? This cannot be undone.")) return;
+    setDeleting(handle);
+    try {
+      await authFetch(`/api/products/${encodeURIComponent(handle)}/`, { method: "DELETE" });
+      setProducts((prev) => prev.filter((p) => p.handle !== handle));
+    } catch (err) {
+      alert(err.message || "Failed to delete product.");
+    } finally {
+      setDeleting(null);
+    }
   }
 
   return (
@@ -69,7 +79,7 @@ export function ProductsTable({ initialProducts }) {
                   <div className="flex items-center gap-3">
                     <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-border bg-black">
                       {product.image && (
-                        <Image src={product.image} alt="" fill className="object-cover" />
+                        <Image src={product.image} alt="" fill sizes="48px" className="object-cover" />
                       )}
                     </div>
                     <span className="font-medium text-foreground line-clamp-2">
@@ -92,8 +102,9 @@ export function ProductsTable({ initialProducts }) {
                     </Link>
                     <button
                       onClick={() => handleDelete(product.handle)}
+                      disabled={deleting === product.handle}
                       aria-label="Delete"
-                      className="flex h-8 w-8 items-center justify-center rounded-md text-muted hover:bg-red-500/10 hover:text-red-400"
+                      className="flex h-8 w-8 items-center justify-center rounded-md text-muted hover:bg-red-500/10 hover:text-red-400 disabled:opacity-40"
                     >
                       <Trash2 size={15} />
                     </button>
