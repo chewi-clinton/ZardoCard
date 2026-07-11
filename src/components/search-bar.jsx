@@ -32,7 +32,7 @@ export function SearchBar() {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-[80] flex items-start justify-center bg-black/70 px-4 pt-28 sm:pt-32">
+        <div className="fixed inset-0 z-[80] flex items-start justify-center overflow-x-hidden bg-black/70 px-[5px] pt-28 sm:px-4 sm:pt-32">
           <button
             aria-label="Close search"
             onClick={() => setOpen(false)}
@@ -40,7 +40,7 @@ export function SearchBar() {
           />
           <form
             onSubmit={handleSubmit}
-            className="relative flex w-full max-w-xl items-center gap-2 rounded-full border border-border bg-[#0a0a0a] px-5 py-3.5"
+            className="relative flex w-full max-w-xl min-w-0 items-center gap-2 rounded-full border border-border bg-[#0a0a0a] px-5 py-3.5"
           >
             <Search size={18} className="shrink-0 text-muted" />
             <input
@@ -48,7 +48,7 @@ export function SearchBar() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search products..."
-              className="w-full bg-transparent text-sm text-foreground placeholder:text-muted focus:outline-none"
+              className="w-full min-w-0 bg-transparent text-sm text-foreground placeholder:text-muted focus:outline-none"
             />
             <button
               type="button"

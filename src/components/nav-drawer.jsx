@@ -85,6 +85,13 @@ export function NavDrawer() {
               >
                 Sell your collection
               </Link>
+              <Link
+                href="/orders/lookup"
+                onClick={close}
+                className="text-sm text-muted hover:text-accent"
+              >
+                Track your order
+              </Link>
             </div>
 
             <div className="mt-auto flex gap-3 pt-6">

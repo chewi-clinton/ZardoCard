@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { User, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { NavDrawer } from "@/components/nav-drawer";
 import { CountrySelector } from "@/components/country-selector";
 import { SearchBar } from "@/components/search-bar";
@@ -53,7 +53,18 @@ export function SiteHeader() {
         }`}
       >
         <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between gap-4 px-4 sm:px-6">
-          <NavDrawer />
+          <button
+            onClick={openCart}
+            className="relative flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
+            aria-label="Cart"
+          >
+            <ShoppingCart size={20} />
+            {itemCount > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-accent-foreground">
+                {itemCount}
+              </span>
+            )}
+          </button>
 
           <Link href="/" className="select-none">
             <Image
@@ -81,25 +92,7 @@ export function SiteHeader() {
             </Link>
             <CountrySelector className="hidden md:flex" />
             <SearchBar />
-            <Link
-              href="/orders/lookup"
-              className="flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
-              aria-label="Track your order"
-            >
-              <User size={20} />
-            </Link>
-            <button
-              onClick={openCart}
-              className="relative flex items-center justify-center rounded-md p-2 text-foreground hover:bg-white/5"
-              aria-label="Cart"
-            >
-              <ShoppingCart size={20} />
-              {itemCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-accent-foreground">
-                  {itemCount}
-                </span>
-              )}
-            </button>
+            <NavDrawer />
           </div>
         </div>
       </div>

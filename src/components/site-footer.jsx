@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, Heart } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FacebookIcon, TikTokIcon } from "@/components/social-icons";
@@ -57,7 +57,7 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-border bg-black">
-      <div className="mx-auto grid w-full max-w-[1400px] grid-cols-1 gap-10 px-6 pt-14 sm:grid-cols-3">
+      <div className="mx-auto grid w-full max-w-[1400px] grid-cols-1 gap-10 px-6 pt-14 sm:grid-cols-2">
         <div className="flex flex-col gap-4">
           <Image
             src="/images/logo.png"
@@ -98,16 +98,6 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="flex items-start justify-start sm:justify-end">
-          <a
-            href="https://shop.app"
-            className="inline-flex items-center gap-2 rounded-full bg-[#5a31f4] px-4 py-2 text-sm font-bold text-white"
-          >
-            <Heart size={14} fill="currentColor" />
-            Follow on shop
-          </a>
         </div>
       </div>
 
