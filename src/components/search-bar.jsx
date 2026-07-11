@@ -109,7 +109,12 @@ export function SearchBar() {
                 }}
                 onKeyDown={handleKeyDown}
                 placeholder="Search products..."
-                className="w-full min-w-0 bg-transparent text-sm text-foreground placeholder:text-muted focus:outline-none"
+                // text-base (16px) instead of text-sm on purpose: iOS Safari
+                // auto-zooms the whole page in when focusing an input with a
+                // computed font-size under 16px, and doesn't reliably zoom
+                // back out, which looks like the page "expanding" and
+                // becoming horizontally scrollable.
+                className="w-full min-w-0 bg-transparent text-base text-foreground placeholder:text-muted focus:outline-none"
               />
               {loading && <Loader2 size={16} className="shrink-0 animate-spin text-muted" />}
               <button
