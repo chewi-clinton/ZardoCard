@@ -5,7 +5,7 @@ from rest_framework import serializers
 from .models import Category, Product
 
 DISCOUNT_THRESHOLD = Decimal("200")
-DISCOUNT_MULTIPLIER = Decimal("0.4")
+DISCOUNT_MULTIPLIER = Decimal("0.6")
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -32,10 +32,8 @@ class ProductSerializer(serializers.ModelSerializer):
     # `price`/`compare_at_price` are the true stored values (what admin
     # reads and writes). `display_price`/`display_compare_at_price` are
     # what the storefront should show: products stored above $200 are
-    # discounted to 40% of that price, with the real price shown as the
-    # compare-at price — the same rule the frontend applies to its
-    # static data, mirrored here so it's authoritative once the
-    # storefront is wired to this API.
+    # discounted to 60% of that price, with the real price shown as the
+    # compare-at price.
     display_price = serializers.SerializerMethodField()
     display_compare_at_price = serializers.SerializerMethodField()
 
