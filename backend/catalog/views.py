@@ -18,3 +18,10 @@ class ProductViewSet(viewsets.ModelViewSet):
     lookup_field = "handle"
     filter_backends = [filters.SearchFilter]
     search_fields = ["title", "handle", "vendor"]
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        category = self.request.query_params.get("category")
+        if category:
+            queryset = queryset.filter(categories__handle=category)
+        return queryset
