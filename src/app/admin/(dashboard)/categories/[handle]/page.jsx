@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export default async function EditCategoryPage({ params }) {
   const { handle } = await params;
-  const category = await getCollection(handle);
+  const category = await getCollection(decodeURIComponent(handle));
   if (!category) notFound();
 
   return <CategoryForm category={category} />;

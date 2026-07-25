@@ -12,7 +12,7 @@ function stripHtml(html) {
 
 export async function generateMetadata({ params }) {
   const { handle } = await params;
-  const collection = await getCollection(handle);
+  const collection = await getCollection(decodeURIComponent(handle));
   if (!collection) return {};
 
   const description =
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
 
 export default async function CollectionPage({ params }) {
   const { handle } = await params;
-  const collection = await getCollection(handle);
+  const collection = await getCollection(decodeURIComponent(handle));
   if (!collection) notFound();
 
   const products = (await getCollectionProducts(handle)).map(toCardProduct);

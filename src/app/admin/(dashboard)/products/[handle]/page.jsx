@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export default async function EditProductPage({ params }) {
   const { handle } = await params;
-  const product = await getProduct(handle);
+  const product = await getProduct(decodeURIComponent(handle));
   if (!product) notFound();
 
   return <ProductForm product={product} />;

@@ -14,7 +14,7 @@ function stripHtml(html) {
 
 export async function generateMetadata({ params }) {
   const { handle } = await params;
-  const product = await getProduct(handle);
+  const product = await getProduct(decodeURIComponent(handle));
   if (!product) return {};
 
   const description = stripHtml(product.description).slice(0, 160);
@@ -55,7 +55,7 @@ const accordions = [
 
 export default async function ProductPage({ params }) {
   const { handle } = await params;
-  const product = await getProduct(handle);
+  const product = await getProduct(decodeURIComponent(handle));
   if (!product) notFound();
 
   const onSale =
