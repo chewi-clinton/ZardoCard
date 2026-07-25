@@ -41,8 +41,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function CollectionPage({ params }) {
-  const { handle } = await params;
-  const collection = await getCollection(decodeURIComponent(handle));
+  const { handle: rawHandle } = await params;
+  const handle = decodeURIComponent(rawHandle);
+  const collection = await getCollection(handle);
   if (!collection) notFound();
 
   const products = (await getCollectionProducts(handle)).map(toCardProduct);
