@@ -12,7 +12,7 @@ import { useCart } from "@/lib/cart-context";
 
 const announcements = [
   "FREE GIFTS IN EVERY ORDER",
-  "FREE SHIPPING ON ORDERS OVER 250$",
+  "FREE SHIPPING ON ALL ORDERS",
   "ALL ORDERS SHIPPED OUT IN LESS THAN 24H",
 ];
 
